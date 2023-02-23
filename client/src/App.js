@@ -1,10 +1,14 @@
 import React from "react";
+import './index.css';
+import PageTitle from "./components/PageTitle";
+import LoginButton from "./components/LoginButton";
 
 function App() {
 
   return (
     <div className="App">
-      Hello
+      <PageTitle />
+      <LoginButton />
     </div>
   );
 }
