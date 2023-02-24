@@ -6,10 +6,9 @@ function NavBar() {
     <div>
         <div className='navbar'>
             <div className='container-fluid'>
-                <a className='navbar-brand' href='/me'>Bubble</a>
                 <a className='navbar-link' href='/me'>Dashboard</a>
                 <a className='navbar-link' href='/me'>Games</a>
-                <a className='navbar-link' href='/me'>My Account</a>
+                <a className='navbar-link' href='/my-account'>My Account</a>
                 <LogoutButton />
 
             </div> 

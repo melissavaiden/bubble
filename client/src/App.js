@@ -6,6 +6,7 @@ import PageTitle from "./components/PageTitle";
 import LandingPage from "./components/Pages/LandingPage";
 import SignUpPage from "./components/Pages/SignUpPage";
 import HomePage from "./components/Pages/HomePage";
+import MyAccountPage from "./components/Pages/MyAccountPage";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/' element={ <LandingPage /> }></Route>
           <Route exact path='/signup' element={ <SignUpPage /> }></Route>
           <Route exact path='/me' element={ <HomePage /> }></Route>
+          <Route exact path='/my-account' element={ <MyAccountPage /> }></Route>
 
         </Routes>
     </div>
