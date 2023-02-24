@@ -7,7 +7,7 @@ function NavBar() {
         <div className='navbar'>
             <div className='container-fluid'>
                 <a className='navbar-link' href='/me'>Dashboard</a>
-                <a className='navbar-link' href='/me'>Games</a>
+                <a className='navbar-link' href='/category-selection'>Games</a>
                 <a className='navbar-link' href='/my-account'>My Account</a>
                 <LogoutButton />
 
