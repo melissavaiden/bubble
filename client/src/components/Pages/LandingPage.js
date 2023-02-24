@@ -15,7 +15,6 @@ function LandingPage() {
             </div> 
         </div>
         <LandingPageBanner />
-
     </div>
   )
 }

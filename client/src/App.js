@@ -5,18 +5,18 @@ import LoginPage from "./components/Pages/LoginPage";
 import PageTitle from "./components/PageTitle";
 import LandingPage from "./components/Pages/LandingPage";
 import SignUpPage from "./components/Pages/SignUpPage";
-import MyScoreboard from "./components/Scoreboards/MyScoreboard";
+import HomePage from "./components/Pages/HomePage";
 
 function App() {
 
   return (
     <div className="App">
       <PageTitle />
-      <MyScoreboard />
         <Routes>
           <Route path='/login' element={ <LoginPage /> }></Route>
           <Route exact path='/' element={ <LandingPage /> }></Route>
           <Route exact path='/signup' element={ <SignUpPage /> }></Route>
+          <Route exact path='/me' element={ <HomePage /> }></Route>
 
         </Routes>
     </div>
