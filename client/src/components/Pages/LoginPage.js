@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import LoginButton from '../Buttons/LoginButton'
+import SignUpButton from '../Buttons/SignUpButton'
 
 function LoginPage() {
     const [username, setUsername] = useState()
@@ -35,7 +35,7 @@ function LoginPage() {
         <div className='sign_up_container'>
           <label>Don't have an account?</label><br></br>
         </div>
-        <LoginButton />
+        <SignUpButton />
       </div>
     </div>
   )

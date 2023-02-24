@@ -38,7 +38,7 @@ function SignUpPage() {
           <label className='form-label'>Password</label>
         </div>
         <br></br>
-        <button type='submit' className='btn btn-primary'>Login</button>
+        <button type='submit' className='btn btn-primary'>Create Account</button>
       </form>
 
       <br></br>

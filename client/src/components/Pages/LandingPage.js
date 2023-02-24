@@ -1,8 +1,11 @@
 import React from 'react'
+import LandingPageBanner from '../Banners-NavBar/LandingPageBanner'
 
 function LandingPage() {
   return (
-    <div>LandingPage</div>
+    <div>
+        <LandingPageBanner />
+    </div>
   )
 }
 
