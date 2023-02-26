@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './index.css';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from "./components/Pages/LoginPage";
@@ -8,8 +8,10 @@ import SignUpPage from "./components/Pages/SignUpPage";
 import HomePage from "./components/Pages/HomePage";
 import MyAccountPage from "./components/Pages/MyAccountPage";
 import GameCategorySelection from "./components/Pages/GameCategorySelection";
+import DifficultySelection from "./components/Pages/DifficultySelection";
 
 function App() {
+  const [category, setCategory] = useState()
 
   return (
     <div className="App">
@@ -19,9 +21,9 @@ function App() {
           <Route exact path='/' element={ <LandingPage /> }></Route>
           <Route exact path='/signup' element={ <SignUpPage /> }></Route>
           <Route exact path='/me' element={ <HomePage /> }></Route>
-          <Route exact path='/my-account' element={ <MyAccountPage /> }></Route>
-          <Route exact path='/category-selection' element={ <GameCategorySelection /> }></Route>
-
+          <Route exact path='/my_account' element={ <MyAccountPage /> }></Route>
+          <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
+          <Route exact path='/difficulty_selection' element={ <DifficultySelection /> }></Route>
         </Routes>
     </div>
   );

@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar'
 
-function GameCategorySelection() {
-  const [category, setCategory] = useState()
+function GameCategorySelection({setCategory}) {
   const navigate = useNavigate();
 
   function handleClick(e) {
-    setCategory(e.target.innerHTML)
+    const category = e.target.innerHTML
+    setCategory(category)
+    navigate('/difficulty_selection')
   }
 
   return (
     <div>
       <NavBar />
-      <div className='container'>
+      <div className='container cat-container'>
         <div className='row'>
           <div className='card col cat-card' onClick={handleClick}>
             Sports
