@@ -14,3 +14,9 @@
     block-size: fit-content;
 
 }
+
+.cat-card {
+    height: 100px;
+    text-align: center;
+    margin: 10px;
+}
