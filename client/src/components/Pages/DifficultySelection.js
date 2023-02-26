@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar';
+import PageTitle from '../PageTitle';
 
 
 function DifficultySelection({category}) {
@@ -9,6 +10,8 @@ function DifficultySelection({category}) {
 
     function handleClick(e) {
         setLevel(e.target.innerHTML)
+        navigate('/loading')
+        setTimeout(() => {navigate('/gameplay')}, 5000)
     }
 
     return (

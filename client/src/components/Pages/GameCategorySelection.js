@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar'
+import PageTitle from '../PageTitle';
 
 function GameCategorySelection({setCategory}) {
   const navigate = useNavigate();

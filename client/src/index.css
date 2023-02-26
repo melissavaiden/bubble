@@ -1,5 +1,14 @@
+html {
+    background: #FF8DFF;
+    background: -moz-radial-gradient(center, #FF8DFF 0%, #75CBFC 100%);
+    background: -webkit-radial-gradient(center, #FF8DFF 0%, #75CBFC 100%);
+    background: radial-gradient(ellipse at center, #FF8DFF 0%, #75CBFC 100%);
+}
+
 .App {
     text-align: center;
+    background-color: palegoldenrod;
+
 }
 
 .landing-page-signup-btn {
@@ -38,6 +47,20 @@
 
 .level-row {
     padding: 10px;
+}
+
+.my-scoreboard-container {
+    block-size: fit-content;
+    width: 50%;
+    float: right;
+}
+
+.my-scoreboard-title {
+    padding: 10px;
+}
+
+.navbar-container {
+    margin: 20px;
 }
 
 

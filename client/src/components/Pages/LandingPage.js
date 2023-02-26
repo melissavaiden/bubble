@@ -2,6 +2,7 @@ import React from 'react'
 import LandingPageBanner from '../Banners-NavBar/LandingPageBanner'
 import LoginButton from '../Buttons/LoginButton'
 import SignUpButton from '../Buttons/SignUpButton'
+import PageTitle from '../PageTitle'
 
 function LandingPage() {
   return (

@@ -9,6 +9,8 @@ import HomePage from "./components/Pages/HomePage";
 import MyAccountPage from "./components/Pages/MyAccountPage";
 import GameCategorySelection from "./components/Pages/GameCategorySelection";
 import DifficultySelection from "./components/Pages/DifficultySelection";
+import GameLoadingPage from "./components/Pages/GameLoadingPage";
+import GamePlayPage from "./components/Pages/GamePlayPage";
 
 function App() {
   const [category, setCategory] = useState()
@@ -24,6 +26,10 @@ function App() {
           <Route exact path='/my_account' element={ <MyAccountPage /> }></Route>
           <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
           <Route exact path='/difficulty_selection' element={ <DifficultySelection category={category}/> }></Route>
+          <Route exact path='/loading' element={ <GameLoadingPage /> }></Route>
+          <Route exact path='/gameplay' element={ <GamePlayPage /> }></Route>
+
+
         </Routes>
     </div>
   );

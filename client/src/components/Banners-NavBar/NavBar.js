@@ -3,7 +3,7 @@ import LogoutButton from '../Buttons/LogoutButton'
 
 function NavBar() {
   return (
-    <div>
+    <div className='navbar-container'>
         <div className='navbar'>
             <div className='container-fluid'>
                 <a className='navbar-link' href='/me'>Dashboard</a>
