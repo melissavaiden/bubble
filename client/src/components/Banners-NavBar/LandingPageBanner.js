@@ -1,6 +1,4 @@
 import React from 'react'
-import LoginButton from '../Buttons/LoginButton'
-import SignUpButton from '../Buttons/SignUpButton'
 
 function LandingPageBanner() {
   return (
