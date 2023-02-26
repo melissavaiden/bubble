@@ -11,7 +11,7 @@ function DifficultySelection({category}) {
     function handleClick(e) {
         setLevel(e.target.innerHTML)
         navigate('/loading')
-        setTimeout(() => {navigate('/gameplay')}, 5000)
+        setTimeout(() => {navigate('/gameplay')}, 10000)
     }
 
     return (
