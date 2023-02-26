@@ -19,12 +19,11 @@
     height: 100px;
     text-align: center;
     margin: 10px;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .page-title {
     margin: 10px;
 }
 
-.cat-card-text {
-    margin: auto;
-}

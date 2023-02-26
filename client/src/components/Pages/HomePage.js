@@ -1,6 +1,5 @@
 import React from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
-import LogoutButton from '../Buttons/LogoutButton'
 
 function HomePage() {
   return (
