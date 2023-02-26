@@ -23,7 +23,7 @@ function App() {
           <Route exact path='/me' element={ <HomePage /> }></Route>
           <Route exact path='/my_account' element={ <MyAccountPage /> }></Route>
           <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
-          <Route exact path='/difficulty_selection' element={ <DifficultySelection /> }></Route>
+          <Route exact path='/difficulty_selection' element={ <DifficultySelection category={category}/> }></Route>
         </Routes>
     </div>
   );
