@@ -13,4 +13,6 @@ puts 'SEEDING!'
   Game.create(category: 'Sports', difficulty: 'Easy')
 
   Score.create(game_id: 1, user_id: 1, score: 100)
+
+  Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 1)
 puts 'SEEDING FINISHED :)'
