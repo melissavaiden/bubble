@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar';
 
 
-function DifficultySelection({category}) {
-    const [level, setLevel] = useState()
+function DifficultySelection({category, setDifficulty}) {
     const navigate = useNavigate();
 
 
 
     function handleClick(e) {
-        setLevel(e.target.innerHTML)
+        setDifficulty(e.target.innerHTML)
         navigate('/loading')
     }
 
