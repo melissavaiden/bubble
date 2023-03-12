@@ -32,7 +32,7 @@ function App() {
           <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
           <Route exact path='/difficulty_selection' element={ <DifficultySelection category={category} setDifficulty={setDifficulty}/> }></Route>
           <Route exact path='/loading' element={ <GameLoadingPage /> }></Route>
-          <Route exact path='/gameplay' element={ <GamePlayPage /> }></Route>
+          <Route exact path='/gameplay' element={ <GamePlayPage category={category} difficulty={difficulty}/> }></Route>
 
 
         </Routes>
