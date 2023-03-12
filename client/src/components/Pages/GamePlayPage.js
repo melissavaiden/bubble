@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
 import InGameTimer from '../Timer/InGameTimer'
 
 function GamePlayPage({category, difficulty}) {
-
-  console.log('category:',category)
-  console.log('difficulty:',difficulty)
+  // const [questions, setQuestions] = useState
 
   useEffect(() => {
     fetch(`/${category}/${difficulty}`)
     .then((r) => r.json())
     .then((questions) => console.log(questions))
-  })
+  },[])
 
   let gameQuestion = <div>Question</div>
 
