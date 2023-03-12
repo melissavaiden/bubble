@@ -15,10 +15,17 @@ import GamePlayPage from "./components/Pages/GamePlayPage";
 function App() {
   const [category, setCategory] = useState('')
   const [difficulty, setDifficulty] = useState('')
+  const [allQuestions, setAllQuestions] = useState([])
+  const [currentQuestion, setCurrentQuestion] = useState([])
+  const [nextQuestion, setNextQuestion] = useState([])
 
   useEffect(() => {
-    fetch('/')
-  })
+    fetch(`/${category}/${difficulty}`)
+    .then((r) => r.json())
+    .then((questions) => setAllQuestions(questions))
+    setCurrentQuestion(allQuestions[0])
+    setNextQuestion(allQuestions[1])
+  },[])
 
   return (
     <div className="App">
