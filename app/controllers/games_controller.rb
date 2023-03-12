@@ -9,7 +9,11 @@ class GamesController < ApplicationController
         category = params[:category].capitalize
         difficulty = params[:difficulty].capitalize
         game = Game.find_by(category: category, difficulty: difficulty)
-        render json: game.questions.shuffle
+        if game
+            render json: game.questions.shuffle
+        else
+            render json: {error: 'Game not Found'}, status: :not_found
+        end
     end
 
     private
