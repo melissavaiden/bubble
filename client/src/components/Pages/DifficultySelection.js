@@ -5,14 +5,13 @@ import NavBar from '../Banners-NavBar/NavBar';
 
 function DifficultySelection({category}) {
     const [level, setLevel] = useState()
-
     const navigate = useNavigate();
+
 
 
     function handleClick(e) {
         setLevel(e.target.innerHTML)
         navigate('/loading')
-        setTimeout(() => {navigate('/gameplay')}, 5000)
     }
 
     return (

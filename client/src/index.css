@@ -63,4 +63,11 @@ html {
     margin: 20px;
 }
 
+.timer {
+    width: fit-content;
+    float: right;
+    font-size: xx-large;
+    background-color: lightblue;
+}
+
 

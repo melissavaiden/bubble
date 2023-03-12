@@ -17,8 +17,10 @@ function InGameTimer() {
     },[num])
 
   return (
-    <div>
-        {num}
+    <div className='card timer'>
+        <div className='card-body'>
+            {num}
+        </div>
     </div>
   )
 }
