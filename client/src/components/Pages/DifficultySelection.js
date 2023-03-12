@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar';
-import PageTitle from '../PageTitle';
 
 
 function DifficultySelection({category}) {
     const [level, setLevel] = useState()
+
     const navigate = useNavigate();
+
 
     function handleClick(e) {
         setLevel(e.target.innerHTML)
         navigate('/loading')
-        setTimeout(() => {navigate('/gameplay')}, 10000)
+        setTimeout(() => {navigate('/gameplay')}, 5000)
     }
 
     return (
