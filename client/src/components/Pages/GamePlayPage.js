@@ -8,10 +8,10 @@ function GamePlayPage({category, difficulty, allQuestions}) {
  console.log(currentQuestion.answers)
 
 
-  let gameQuestion = <div>{currentQuestion.question_text}</div>
+  let gameQuestion = <div className='card'>{currentQuestion.question_text}</div>
 
   let gameAnswers = currentQuestion.answers.map((answer) => {
-    return <div className='btn'>{answer}</div>
+    return <div key={answer} className='btn'>{answer}</div>
   })
 
 
