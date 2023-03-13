@@ -2,9 +2,20 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-function GameLoadingPage() {
+function GameLoadingPage({difficulty, category, allQuestions, setAllQuestions, setCurrentQuestion, setNextQuestion}) {
   const [num, setNum] = useState(5)
   const navigate = useNavigate();
+
+
+
+  useEffect(() => {
+    fetch(`/${category}/${difficulty}`)
+    .then((r) => r.json())
+    .then((questions) => setAllQuestions(questions))
+  },[])
+
+    // setCurrentQuestion(allQuestions[0])
+    // setNextQuestion(allQuestions[1])
 
 
   function timer() {
@@ -16,7 +27,7 @@ function GameLoadingPage() {
         setTimeout(timer, 1000)
     }
     else {
-        navigate('/gameplay')
+      navigate('/gameplay')
     }
 },[num])
 

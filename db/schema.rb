@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_000433) do
     t.string "difficulty"
     t.string "question_text"
     t.string "image"
-    t.string "answers"
+    t.string "answers", array: true
     t.string "correct_answer"
     t.bigint "game_id"
     t.datetime "created_at", null: false

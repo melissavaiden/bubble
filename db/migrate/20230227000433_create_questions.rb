@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
       t.string :difficulty
       t.string :question_text
       t.string :image
-      t.string :answers
+      t.string :answers, array: true
       t.string :correct_answer
       t.belongs_to :game, foreign_key: true
 

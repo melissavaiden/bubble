@@ -19,13 +19,6 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = useState([])
   const [nextQuestion, setNextQuestion] = useState([])
 
-  useEffect(() => {
-    fetch(`/${category}/${difficulty}`)
-    .then((r) => r.json())
-    .then((questions) => setAllQuestions(questions))
-    setCurrentQuestion(allQuestions[0])
-    setNextQuestion(allQuestions[1])
-  },[])
 
   return (
     <div className="App">
@@ -38,8 +31,8 @@ function App() {
           <Route exact path='/my_account' element={ <MyAccountPage /> }></Route>
           <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
           <Route exact path='/difficulty_selection' element={ <DifficultySelection category={category} setDifficulty={setDifficulty}/> }></Route>
-          <Route exact path='/loading' element={ <GameLoadingPage /> }></Route>
-          <Route exact path='/gameplay' element={ <GamePlayPage category={category} difficulty={difficulty}/> }></Route>
+          <Route exact path='/loading' element={ <GameLoadingPage category={category} difficulty={difficulty} setAllQuestions={setAllQuestions} setCurrentQuestion={setCurrentQuestion} setNextQuestion={setNextQuestion} allQuestions={allQuestions}/> }></Route>
+          <Route exact path='/gameplay' element={ <GamePlayPage category={category} difficulty={difficulty} allQuestions={allQuestions}/> }></Route>
 
 
         </Routes>
