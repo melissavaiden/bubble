@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
 import InGameTimer from '../Timer/InGameTimer'
 
-function GamePlayPage({category, difficulty, allQuestions}) {
+function GamePlayPage({ allQuestions}) {
   const [nextQuestionIndex, setNextQuestionIndex] = useState(1)
   const [currentQuestion, setCurrentQuestion] = useState(allQuestions[0])
   const [nextQuestion, setNextQuestion] = useState(allQuestions[nextQuestionIndex])
@@ -10,21 +10,21 @@ function GamePlayPage({category, difficulty, allQuestions}) {
 
   console.log(currentQuestion.correct_answer)
   console.log(nextQuestionIndex)
-  console.log(score)
+  // console.log(score)
 
   function handleClick(e) {
       let selectedAnswer = e.target.innerHTML
       let correctAnswer = currentQuestion.correct_answer
       if (selectedAnswer === correctAnswer) {
-        setCurrentQuestion(nextQuestion)
-        setNextQuestionIndex(nextQuestionIndex + 1)
         setScore(score + 1)
         console.log('u win')
       }
       else {
-        nextQuestionIndex++
         console.log('u lose')
       }
+      setCurrentQuestion(nextQuestion)
+      setNextQuestionIndex(nextQuestionIndex + 1)
+      setNextQuestion(allQuestions[nextQuestionIndex])
   }
 
 
