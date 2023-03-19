@@ -10,7 +10,6 @@ function GamePlayPage({ allQuestions}) {
 
   console.log(currentQuestion.correct_answer)
   console.log(nextQuestionIndex)
-  // console.log(score)
 
   function handleClick(e) {
       let selectedAnswer = e.target.innerHTML

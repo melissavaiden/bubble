@@ -1,40 +1,90 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import LoginButton from '../Buttons/LoginButton'
 
-function SignUpPage() {
-    const [username, setUsername] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+function SignUpPage({setUser}) {
+  const [error, setError] = useState()
+  const [newUser, setNewUser] = useState({
+    username:"",
+    name:"",
+    email:"",
+    password:"",
+    avatar_url: ""
+  })
+  const navigate = useNavigate();
 
 
-    function handleUserChange(e) {
-        setUsername(e.target.value)
+  function handleChange(e) {
+    setNewUser({
+      ...newUser,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  console.log(newUser)
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch('/users', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "username": newUser.username,
+        "name": newUser.name,
+        "email": newUser.email,
+        "password": newUser.password,
+        "avatar_url": newUser.avatar_url
+      }),
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          setUser(user)
+          fetch('/login', {
+            method: 'POST', 
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              "username" : newUser.username,
+              "password" : newUser.password
+            }),
+          })
+          .then((r) => {
+            if (r.ok) {
+              navigate('/me')
+            }
+          })
+        })
+      } else {
+        r.json().then((error) => setError(error.error))
       }
-    
-    function handleEmailChange(e) {
-        setEmail(e.target.value)
-    }
-
-    function handlePasswordChange(e) {
-        setPassword(e.target.value)
-    }
+    })
+  }
 
   return (
     <div className='container'>
       <h1 className='page_title'>Sign Up</h1>
-      <form>
+      {error}
+      <form onSubmit={handleSubmit}>
         <div className="form-floating">
-          <input type='username' className='form-control' placeholder='username' onChange={handleUserChange}></input>
+          <input type='username' className='form-control' name='username' placeholder='username' onChange={handleChange}></input>
           <label>Username</label>
           <br></br>
         </div>
         <div className='form-floating'>
-          <input type='email' className='form-control' placeholder='email' onChange={handleEmailChange}></input>
+          <input type='name' className='form-control' name='name' placeholder='name' onChange={handleChange}></input>
+          <label className='form-label'>Name</label>
+        </div>
+        <br></br>
+        <div className='form-floating'>
+          <input type='email' className='form-control' name='email' placeholder='email' onChange={handleChange}></input>
           <label className='form-label'>Email</label>
         </div>
         <br></br>
         <div className='form-floating'>
-          <input type='password' className='form-control' placeholder='password' onChange={handlePasswordChange}></input>
+          <input type='password' className='form-control' name='password' placeholder='password' onChange={handleChange}></input>
           <label className='form-label'>Password</label>
         </div>
         <br></br>

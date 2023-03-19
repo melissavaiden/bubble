@@ -1,9 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate} from 'react-router-dom'
 import SignUpButton from '../Buttons/SignUpButton'
 
-function LoginPage() {
+function LoginPage({setUser, user}) {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
+    const [errors, setErrors] = useState()
+    const navigate = useNavigate();
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      fetch('/login', {
+        method: 'POST', 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "username" : username,
+          "password" : password
+        }),
+      })
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((currentUser) => setUser(currentUser))
+        } else {
+          r.json().then((error) => setErrors(error.errors))
+        }
+      })
+    }
+  
+    useEffect(() => {
+      if (user.id)
+        navigate("/homepage")
+      else
+        navigate('/')
+  }, [user])
 
     function handleUserChange(e) {
         setUsername(e.target.value)
@@ -16,7 +47,7 @@ function LoginPage() {
   return (
     <div className='container'>
       <h1 className='page_title'>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-floating">
           <input type='username' className='form-control' placeholder='username' onChange={handleUserChange}></input>
           <label>Username</label>

@@ -13,18 +13,31 @@ import GameLoadingPage from "./components/Pages/GameLoadingPage";
 import GamePlayPage from "./components/Pages/GamePlayPage";
 
 function App() {
+  const [user, setUser] = useState([])
   const [category, setCategory] = useState('')
   const [difficulty, setDifficulty] = useState('')
   const [allQuestions, setAllQuestions] = useState([])
+  const [errors, setErrors] = useState('')
+
+
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+      else
+        setErrors('Error')
+    });
+  }, []);
 
 
   return (
     <div className="App">
       <PageTitle />
         <Routes>
-          <Route path='/login' element={ <LoginPage /> }></Route>
+          <Route path='/login' element={ <LoginPage  setUser={setUser} user={user}/> }></Route>
           <Route exact path='/' element={ <LandingPage /> }></Route>
-          <Route exact path='/signup' element={ <SignUpPage /> }></Route>
+          <Route exact path='/signup' element={ <SignUpPage setUser={setUser}/> }></Route>
           <Route exact path='/me' element={ <HomePage /> }></Route>
           <Route exact path='/my_account' element={ <MyAccountPage /> }></Route>
           <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
