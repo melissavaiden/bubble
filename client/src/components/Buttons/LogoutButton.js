@@ -2,19 +2,26 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-function LogoutButton() {
+function LogoutButton({setUser}) {
     const navigate = useNavigate();
 
 
-    function handleClick() {
-        console.log('clicked')
-        navigate('/')
-      }
+    function handleLogOut() {
+      fetch('/logout', {
+        method: 'DELETE'
+      })
+      .then((r) => {
+        if (r.ok) {
+          setUser([])
+          navigate('/')
+        }
+      })
+    }
 
 
   return (
     <div>
-        <button className='btn btn-primary' onClick={handleClick}>Sign Out</button>
+        <button className='btn btn-primary' onClick={handleLogOut}>Sign Out</button>
     </div>
   )
 }
