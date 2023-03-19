@@ -23,18 +23,13 @@ function LoginPage({setUser, user}) {
       .then((r) => {
         if (r.ok) {
           r.json().then((currentUser) => setUser(currentUser))
+          navigate("/me")
         } else {
           r.json().then((error) => setErrors(error.errors))
         }
       })
     }
   
-    useEffect(() => {
-      if (user.id)
-        navigate("/homepage")
-      else
-        navigate('/')
-  }, [user])
 
     function handleUserChange(e) {
         setUsername(e.target.value)
@@ -48,6 +43,7 @@ function LoginPage({setUser, user}) {
     <div className='container'>
       <h1 className='page_title'>Login</h1>
       <form onSubmit={handleSubmit}>
+        {errors}
         <div className="form-floating">
           <input type='username' className='form-control' placeholder='username' onChange={handleUserChange}></input>
           <label>Username</label>
