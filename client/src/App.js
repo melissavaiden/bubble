@@ -25,8 +25,9 @@ function App() {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
-      else
+      else {
         setErrors('Error')
+      }
     });
   }, []);
 
@@ -38,7 +39,7 @@ function App() {
           <Route path='/login' element={ <LoginPage  setUser={setUser} user={user}/> }></Route>
           <Route exact path='/' element={ <LandingPage /> }></Route>
           <Route exact path='/signup' element={ <SignUpPage setUser={setUser}/> }></Route>
-          <Route exact path='/me' element={ <HomePage /> }></Route>
+          <Route exact path='/me' element={ <HomePage user={user}/> }></Route>
           <Route exact path='/my_account' element={ <MyAccountPage /> }></Route>
           <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
           <Route exact path='/difficulty_selection' element={ <DifficultySelection category={category} setDifficulty={setDifficulty}/> }></Route>
