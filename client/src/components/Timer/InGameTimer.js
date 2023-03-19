@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 function InGameTimer() {
     const [num, setNum] = useState(30)
+    const navigate = useNavigate();
+
 
     function timer() {
         setNum(num - 1)
@@ -12,7 +16,7 @@ function InGameTimer() {
             setTimeout(timer, 1000)
         }
         else {
-            console.log('done')
+            navigate('/gameover')
         }
     },[num])
 

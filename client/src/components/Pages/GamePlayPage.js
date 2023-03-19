@@ -8,8 +8,9 @@ function GamePlayPage({ allQuestions}) {
   const [nextQuestion, setNextQuestion] = useState(allQuestions[nextQuestionIndex])
   const [score, setScore] = useState(0)
 
-  console.log(currentQuestion.correct_answer)
-  console.log(nextQuestionIndex)
+  console.log('Correct Answer:', currentQuestion.correct_answer)
+  console.log('Next Question Index:', nextQuestionIndex)
+  console.log('Score:', score)
 
   function handleClick(e) {
       let selectedAnswer = e.target.innerHTML
@@ -30,7 +31,7 @@ function GamePlayPage({ allQuestions}) {
   let gameQuestion = <div className='card'>{currentQuestion.question_text}</div>
 
   let gameAnswers = currentQuestion.answers.map((answer) => {
-    return <div key={answer} className='btn' onClick={handleClick} value={answer}>{answer}</div>
+    return <div key={answer} className='btn btn-primary' onClick={handleClick} value={answer}>{answer}</div>
   })
 
 
