@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function PostGameScoreboard() {
-
+function PostGameScoreboard({currentGameId}) {
 
   return (
     <div className='container'>

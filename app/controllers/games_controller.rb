@@ -11,7 +11,7 @@ class GamesController < ApplicationController
         game = Game.find_by(category: category, difficulty: difficulty)
         if game
             # render json: game.questions.shuffle
-            render json: game, include: [:questions]
+            render json: game, include: [:questions, 'scores.user']
         else
             render json: {error: 'Game not Found'}, status: :not_found
         end

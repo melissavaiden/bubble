@@ -7,7 +7,7 @@ function EndOfGamePage({currentGameId}) {
     <>
       <div> <NavBar /> </div>
       <h1>GAME OVER!!</h1>
-      <div> <PostGameScoreboard /> </div>
+      <div> <PostGameScoreboard currentGameId={currentGameId}/> </div>
     </>
   )
 }
