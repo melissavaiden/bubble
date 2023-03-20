@@ -15,6 +15,7 @@ function GameLoadingPage({difficulty, category, setAllQuestions}) {
   },[])
 
 
+
   function timer() {
       setNum(num - 1)
   }
