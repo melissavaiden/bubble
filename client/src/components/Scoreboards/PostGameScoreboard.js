@@ -1,6 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-function PostGameScoreboard({currentGameId}) {
+function PostGameScoreboard({currentGameScores}) {
+
+    let userScores = currentGameScores.map((score) => {
+        return (
+            <tr>
+                <td>{score.user.username}</td>
+                <td>{score.score}</td>
+            </tr>
+        )
+    })
+
 
   return (
     <div className='container'>
@@ -13,10 +23,7 @@ function PostGameScoreboard({currentGameId}) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>name</td>
-                    <td>score number</td>
-                </tr>
+                {userScores}
             </tbody>
         </table>
     </div>

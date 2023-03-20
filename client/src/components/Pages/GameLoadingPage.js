@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-function GameLoadingPage({difficulty, category, setAllQuestions, setCurrentGameId}) {
+function GameLoadingPage({difficulty, category, setAllQuestions, setCurrentGameScores}) {
   const [num, setNum] = useState(5)
   const navigate = useNavigate();
 
@@ -13,10 +13,9 @@ function GameLoadingPage({difficulty, category, setAllQuestions, setCurrentGameI
     .then((r) => r.json())
     .then((game) => {
       setAllQuestions(game.questions)
-      setCurrentGameId(game.id)
+      setCurrentGameScores(game.scores)
     })
   },[])
-
 
 
   function timer() {
