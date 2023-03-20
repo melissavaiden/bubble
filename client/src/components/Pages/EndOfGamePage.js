@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
 import PostGameScoreboard from '../Scoreboards/PostGameScoreboard'
 
-function EndOfGamePage() {
+function EndOfGamePage({currentGameId}) {
   return (
     <>
       <div> <NavBar /> </div>
