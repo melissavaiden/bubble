@@ -7,18 +7,16 @@ html {
 
 .App {
     text-align: center;
-    background-color: palegoldenrod;
+    /* background-color: rgb(246, 246, 242); */
 
 }
 
 .landing-page-signup-btn {
-    float: left;
     width: fit-content;
     block-size: fit-content;
 }
 
 .landing-page-login-btn {
-    float: right;
     width: fit-content;
     block-size: fit-content;
 
