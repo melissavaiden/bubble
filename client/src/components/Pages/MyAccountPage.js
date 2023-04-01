@@ -36,6 +36,7 @@ function MyAccountPage({user}) {
         <NavBar /> 
       </div>
       <div className='update-confirmation'></div>
+      <br></br>
       <form className='container' onSubmit={handleSubmit}>
         <div className="row justify-content-evenly">
           <label className='form-label col'>Username:</label>
