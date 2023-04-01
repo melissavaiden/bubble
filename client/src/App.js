@@ -22,6 +22,7 @@ function App() {
   const [currentGameScores, setCurrentGameScores] = useState([])
   const [errors, setErrors] = useState('')
 
+
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {

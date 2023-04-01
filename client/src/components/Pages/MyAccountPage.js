@@ -9,7 +9,7 @@ function MyAccountPage({user}) {
     password: user.password,
     avatar_pic: user.avatar_pic
   })
-  console.log(updateUser)
+  
   function handleClick(e) {
     e.preventDefault();
     let buttonClass = e.target.id
@@ -17,6 +17,15 @@ function MyAccountPage({user}) {
     let selectedInput = document.querySelector(`.${buttonClass}-input`)
     console.log(selectedInput)
   }
+
+  function handleChange(e) {
+    setUpdateUser({
+      ...updateUser,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  console.log(updateUser)
 
   return (
     <>
@@ -26,25 +35,25 @@ function MyAccountPage({user}) {
       <form className='container'>
         <div className="row align-items-center">
           <label className='form-label col'>Username:</label>
-          <input type='username' className='form-control col username-input' placeholder={updateUser.username} disabled></input>
+          <input type='username' className='form-control col username-input' name='username' placeholder={updateUser.username} onChange={handleChange}></input>
           <button className='btn col' id='username' onClick={handleClick}>Edit</button>
         </div>
         <br></br>
         <div className='row align-items-center'> 
           <label className='form-label col'>Email:</label>
-          <input type='email' className='form-control col email-input' placeholder={updateUser.email}></input>
+          <input type='email' className='form-control col email-input' name='email' placeholder={updateUser.email} onChange={handleChange}></input>
           <button className='btn col' id='email' onClick={handleClick}>Edit</button>
         </div>
         <br></br>
         <div className='row align-items-center'>
           <label className='form-label col'>Password:</label>
-          <input type='password' className='form-control col password-input' placeholder={updateUser.password}></input>
+          <input type='password' className='form-control col password-input' name='password' placeholder={updateUser.password} onChange={handleChange}></input>
           <button className='btn col' id='password' onClick={handleClick}>Edit</button>
         </div>
         <br></br>
         <div className='row align-items-center'>
           <label className='form-label col'>Picture:</label>
-          <input type='picture' className='form-control col' placeholder='picture'></input>
+          <input type='picture' className='form-control col' name='avatar_pic' placeholder='picture' onChange={handleChange}></input>
           <button className='btn col' onClick={handleClick}>Edit</button>
         </div>
         <br></br>
