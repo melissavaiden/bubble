@@ -6,16 +6,14 @@ function MyAccountPage({user}) {
     username: user.username,
     name: user.name,
     email: user.email,
-    password: user.password,
+    password: user.password_digest,
     avatar_pic: user.avatar_pic
   })
+
+  console.log(updateUser)
   
   function handleClick(e) {
-    e.preventDefault();
-    let buttonClass = e.target.id
-    console.log(buttonClass)
-    let selectedInput = document.querySelector(`.${buttonClass}-input`)
-    console.log(selectedInput)
+    e.target.removeAttribute('readOnly')
   }
 
   function handleChange(e) {
@@ -25,36 +23,38 @@ function MyAccountPage({user}) {
     })
   }
 
-  console.log(updateUser)
+  function handleSubmit(e) {
+    e.preventDefault();
+    let confirmation_div = document.querySelector('.update-confirmation')
+    confirmation_div.innerHTML = 'Your account has been successfully updated!'
+    console.log(confirmation_div)
+  }
 
   return (
     <>
       <div>
         <NavBar /> 
       </div>
-      <form className='container'>
-        <div className="row align-items-center">
+      <div className='update-confirmation'></div>
+      <form className='container' onSubmit={handleSubmit}>
+        <div className="row justify-content-evenly">
           <label className='form-label col'>Username:</label>
-          <input type='username' className='form-control col username-input' name='username' placeholder={updateUser.username} onChange={handleChange}></input>
-          <button className='btn col' id='username' onClick={handleClick}>Edit</button>
+          <input type='username' className='form-control col username-input' name='username' placeholder={user.username} onChange={handleChange} onClick={handleClick} readOnly></input>
         </div>
         <br></br>
-        <div className='row align-items-center'> 
+        <div className='row justify-content-evenly'> 
           <label className='form-label col'>Email:</label>
-          <input type='email' className='form-control col email-input' name='email' placeholder={updateUser.email} onChange={handleChange}></input>
-          <button className='btn col' id='email' onClick={handleClick}>Edit</button>
+          <input type='email' className='form-control col email-input' name='email' placeholder={user.email} onChange={handleChange}></input>
         </div>
         <br></br>
-        <div className='row align-items-center'>
+        <div className='row justify-content-evenly'>
           <label className='form-label col'>Password:</label>
-          <input type='password' className='form-control col password-input' name='password' placeholder={updateUser.password} onChange={handleChange}></input>
-          <button className='btn col' id='password' onClick={handleClick}>Edit</button>
+          <input type='password' className='form-control col password-input' name='password' placeholder={user.password_digest} onChange={handleChange}></input>
         </div>
         <br></br>
-        <div className='row align-items-center'>
+        <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
-          <input type='picture' className='form-control col' name='avatar_pic' placeholder='picture' onChange={handleChange}></input>
-          <button className='btn col' onClick={handleClick}>Edit</button>
+          <input type='file' className='form-control col' name='avatar_pic' placeholder='picture' onChange={handleChange}></input>
         </div>
         <br></br>
         <button type='submit' className='btn btn-primary'>Save Changes</button>

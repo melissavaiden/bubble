@@ -15,7 +15,7 @@ import EndOfGamePage from "./components/Pages/EndOfGamePage";
 
 
 function App() {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState({})
   const [category, setCategory] = useState('')
   const [difficulty, setDifficulty] = useState('')
   const [allQuestions, setAllQuestions] = useState([])
