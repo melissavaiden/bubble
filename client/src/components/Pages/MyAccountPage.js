@@ -7,7 +7,7 @@ function MyAccountPage({user}) {
     name: user.name,
     email: user.email,
     password: user.password_digest,
-    avatar_pic: user.avatar_pic
+    // avatar_pic: user.avatar_pic
   })
 
   console.log(updateUser)
@@ -25,9 +25,13 @@ function MyAccountPage({user}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let confirmation_div = document.querySelector('.update-confirmation')
-    confirmation_div.innerHTML = 'Your account has been successfully updated!'
-    console.log(confirmation_div)
+    const data = new FormData();
+
+    data.append("user[image]", e.target.image.file[0])
+    data.append("user[]")
+
+    // let confirmation_div = document.querySelector('.update-confirmation')
+    // confirmation_div.innerHTML = 'Your account has been successfully updated!'
   }
 
   return (
@@ -55,7 +59,7 @@ function MyAccountPage({user}) {
         <br></br>
         <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
-          <input type='file' className='form-control col' name='avatar_pic' placeholder='picture' onChange={handleChange}></input>
+          <input type='file' className='form-control col' name='image' placeholder='image' onChange={handleChange}></input>
         </div>
         <br></br>
         <button type='submit' className='btn btn-primary'>Save Changes</button>

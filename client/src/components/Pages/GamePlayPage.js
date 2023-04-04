@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
+import InGameScore from '../Scoreboards/InGameScore'
 import InGameTimer from '../Timer/InGameTimer'
 
 function GamePlayPage({ allQuestions}) {
@@ -38,6 +39,9 @@ function GamePlayPage({ allQuestions}) {
   return (
     <div className='container'>
       <NavBar />
+      <div>
+        <InGameScore score={score}/>
+      </div>
       <div className='card game-question'>
         {gameQuestion}
       </div>
