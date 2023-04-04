@@ -10,8 +10,8 @@ function LogoutButton({setUser}) {
       fetch('/logout', {
         method: 'DELETE'
       })
-      setUser([])
       navigate('/')
+      setUser([])
     }
 
 
