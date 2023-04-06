@@ -88,6 +88,11 @@ function SignUpPage({setUser}) {
           <label className='form-label'>Password</label>
         </div>
         <br></br>
+        <div className='row justify-content-evenly'>
+          <label className='form-label col'>Picture:</label>
+          <input type='file' className='form-control col' name='image' placeholder='image' onChange={handleChange}></input>
+        </div>
+        <br />
         <button type='submit' className='btn btn-primary'>Create Account</button>
       </form>
 

@@ -53,15 +53,11 @@ function MyAccountPage({user}) {
         </div>
         <br></br>
         <div className='row justify-content-evenly'>
-          <label className='form-label col'>Password:</label>
-          <input type='password' className='form-control col password-input' name='password' placeholder={user.password_digest} onChange={handleChange}></input>
-        </div>
-        <br></br>
-        <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
           <input type='file' className='form-control col' name='image' placeholder='image' onChange={handleChange}></input>
         </div>
         <br></br>
+        <button type='submit' className='btn btn-danger'>Change Password</button>
         <button type='submit' className='btn btn-primary'>Save Changes</button>
       </form>
     </>
