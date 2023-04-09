@@ -20,7 +20,19 @@ function App() {
   const [difficulty, setDifficulty] = useState('')
   const [allQuestions, setAllQuestions] = useState([])
   const [currentGameScores, setCurrentGameScores] = useState([])
+  const [popularGameScores, setPopularGameScores] = useState([])
   const [errors, setErrors] = useState('')
+
+  useEffect(() => {
+    fetch("/random_scoreboard").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+      else {
+        setErrors('Error')
+      }
+    });
+  }, []);
 
 
   useEffect(() => {

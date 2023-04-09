@@ -17,6 +17,11 @@ class GamesController < ApplicationController
         end
     end
 
+    def random_game_scores
+        game = Game.all.shuffle.first.scores
+        render json: game, status: :not_found
+    end
+
 
     private
 

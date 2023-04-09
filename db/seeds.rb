@@ -42,8 +42,90 @@ puts 'SEEDING!'
   Game.create(category: 'TV Shows', difficulty: 'Hard')
 
 
-
+#Scores
   Score.create(game_id: 1, user_id: 1, score: 100)
+  Score.create(game_id: 1, user_id: 2, score: 100)
+  Score.create(game_id: 1, user_id: 3, score: 100)
+  Score.create(game_id: 1, user_id: 4, score: 100)
+  Score.create(game_id: 1, user_id: 5, score: 100)
+  Score.create(game_id: 1, user_id: 6, score: 100)
+  Score.create(game_id: 1, user_id: 7, score: 100)
+
+  Score.create(game_id: 2, user_id: 1, score: 100)
+  Score.create(game_id: 2, user_id: 2, score: 100)
+  Score.create(game_id: 2, user_id: 3, score: 100)
+  Score.create(game_id: 2, user_id: 4, score: 100)
+  Score.create(game_id: 2, user_id: 5, score: 100)
+  Score.create(game_id: 2, user_id: 6, score: 100)
+
+  Score.create(game_id: 3, user_id: 1, score: 100)
+  Score.create(game_id: 3, user_id: 4, score: 100)
+  Score.create(game_id: 3, user_id: 5, score: 100)
+  Score.create(game_id: 3, user_id: 6, score: 100)
+
+  Score.create(game_id: 4, user_id: 1, score: 100)
+  Score.create(game_id: 4, user_id: 2, score: 100)
+  Score.create(game_id: 4, user_id: 3, score: 100)
+  Score.create(game_id: 4, user_id: 4, score: 100)
+
+  Score.create(game_id: 5, user_id: 1, score: 100)
+  Score.create(game_id: 5, user_id: 3, score: 100)
+  Score.create(game_id: 5, user_id: 5, score: 100)
+
+  Score.create(game_id: 6, user_id: 5, score: 100)
+  Score.create(game_id: 6, user_id: 6, score: 100)
+  Score.create(game_id: 6, user_id: 7, score: 100)
+
+  Score.create(game_id: 7, user_id: 1, score: 100)
+  Score.create(game_id: 7, user_id: 2, score: 100)
+  Score.create(game_id: 7, user_id: 3, score: 100)
+
+  Score.create(game_id: 8, user_id: 5, score: 100)
+  Score.create(game_id: 8, user_id: 6, score: 100)
+  Score.create(game_id: 8, user_id: 7, score: 100)
+
+  Score.create(game_id: 9, user_id: 8, score: 100)
+  Score.create(game_id: 9, user_id: 9, score: 100)
+  Score.create(game_id: 9, user_id: 1, score: 100)
+
+  Score.create(game_id: 10, user_id: 2, score: 100)
+  Score.create(game_id: 10, user_id: 3, score: 100)
+  Score.create(game_id: 10, user_id: 4, score: 100)
+
+  Score.create(game_id: 11, user_id: 5, score: 100)
+  Score.create(game_id: 11, user_id: 6, score: 100)
+  Score.create(game_id: 11, user_id: 7, score: 100)
+
+  Score.create(game_id: 12, user_id: 8, score: 100)
+  Score.create(game_id: 12, user_id: 9, score: 100)
+  Score.create(game_id: 12, user_id: 10, score: 100)
+
+  Score.create(game_id: 13, user_id: 1, score: 100)
+  Score.create(game_id: 13, user_id: 2, score: 100)
+  Score.create(game_id: 13, user_id: 3, score: 100)
+
+  Score.create(game_id: 14, user_id: 4, score: 100)
+  Score.create(game_id: 14, user_id: 5, score: 100)
+  Score.create(game_id: 14, user_id: 6, score: 100)
+
+  Score.create(game_id: 15, user_id: 7, score: 100)
+  Score.create(game_id: 15, user_id: 8, score: 100)
+  Score.create(game_id: 15, user_id: 9, score: 100)
+
+  Score.create(game_id: 16, user_id: 1, score: 100)
+  Score.create(game_id: 16, user_id: 2, score: 100)
+  Score.create(game_id: 16, user_id: 3, score: 100)
+
+  Score.create(game_id: 17, user_id: 4, score: 100)
+  Score.create(game_id: 17, user_id: 5, score: 100)
+  Score.create(game_id: 17, user_id: 6, score: 100)
+
+  Score.create(game_id: 18, user_id: 7, score: 100)
+  Score.create(game_id: 18, user_id: 8, score: 100)
+  Score.create(game_id: 18, user_id: 9, score: 100)
+
+
+
 
   #Sports-Easy Questions
   Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'In which golf tournament is a green jacket awarded to the winner?', answers: ['The Masters', 'US Open', 'US PGA', 'British Open'], correct_answer: 'The Masters', game_id: 1)
@@ -55,7 +137,7 @@ puts 'SEEDING!'
   Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'Which NFL team play their home games in Tampa Bay?', answers: ['Buccaneers', 'Texans', 'Patriots', 'Packers'], correct_answer: 'Buccaneers', game_id: 1)
   Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'All these sports use the word "pitch". However, only in one of them it is used as a verb. Which one?', answers: ['Baseball', 'Soccer', 'Rugby', 'Climbing'], correct_answer: 'Baseball', game_id: 1)
   Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'With which sport would you associate the terms "blue line", "face-off", "icing", and "Stanley Cup"?', answers: ['Ice hockey', 'Curling', 'Yachting', 'Lacrosse'], correct_answer: 'Ice hockey', game_id: 1)
-  Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 1)
+  Question.create(category: 'Sports', difficulty: 'Easy', question_text: 'Their home stadium was renamed in 1972 from Carolina Stadium to ____________ .', answers: ['Williams Brice Stadium', 'Gamecock Stadium', 'Death Valley', 'Palmetto Field'], correct_answer: 'Williams Brice Stadium', game_id: 1)
 
   #Sports-Medium Questions
   Question.create(category: 'Sports', difficulty: 'Medium', question_text: "Who was the first British driver to win what is considered motor racing's Triple Crown?", answers: ['Graham Hill', 'Tom Jones', 'Bruce Kessler,', 'Thomas Monarch'], correct_answer: 'Graham Hill', game_id: 2)
@@ -66,9 +148,9 @@ puts 'SEEDING!'
   Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'The 2008 Indianapolis Colts franchise joined the NFL in 1953 under which name?', answers: ['Baltimore Colts', 'Cleveland Rams', 'Chicago Colts', 'Indianapolis Spartans'], correct_answer: 'Baltimore Colts', game_id: 2)
   Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'The Miami Dolphins had the first undefeated season in NFL history. In 1985, which undefeated team did they beat, to make sure their legacy remained?', answers: ['Chicago Bears', 'San Francisco 49ers', 'New England Patriots', 'New York Giants'], correct_answer: 'Chicago Bears', game_id: 2)
   Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'Wide receivers Lance Alworth and Charlie Joiner, defensive end Fred Dean, offensive lineman Ron Mix and tight end Kellen Winslow are all NFL Hall of Fame players who played for which franchise?', answers: ['San Diego Chargers', 'Green Bay Packers', 'Miami Dolphins', 'Cleveland Browns'], correct_answer: 'San Diego Chargers', game_id: 2)
-  Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 2)
-  Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 2)
-  Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 2)
+  Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'Which Gamecock won the Heisman Trophy in 1980?', answers: ['George Rogers', 'Charles White', 'Herschel Walker', 'Mike Rozier'], correct_answer: 'George Rogers', game_id: 2)
+  Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'Which entrance song that the Gamecocks have used has been named by "Sporting News" as the "Best Entrance in College Football"?', answers: ['2001-Space Odyssey', "Hell's Bells", 'We Are The Champions', 'Gamecock Fight Song'], correct_answer: '2001-Space Odyssey', game_id: 2)
+  Question.create(category: 'Sports', difficulty: 'Medium', question_text: 'The word "Capoeira" comes from which word from the Tupi Indian language?', answers: ['Copo era', 'Ka puera', 'Cabuaira', 'Kapoira'], correct_answer: 'Ka puera', game_id: 2)
 
   #Sports-Hard Questions
   Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Which wild animal is the symbol of the South African Rugby Union team?', answers: ['Springbok', 'Cheetah', 'Lion', 'Protea'], correct_answer: 'Springbok', game_id: 3)
@@ -76,14 +158,14 @@ puts 'SEEDING!'
   Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'What two gymnastic events are done in competition by both men and women?', answers: ['Vault and Floor', 'Still Rings and Vault', 'High Bar and Floor', 'Balance Beam and Pommel Horse'], correct_answer: 'Vault and Floor', game_id: 3)
   Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Which year saw the Cincinnati Bengals become part of the NFL?', answers: ['1968', '1927', '1980', '1949'], correct_answer: '1968', game_id: 3)
   Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Which Illinois town did the Chicago Bears originally call home?', answers: ['Decatur', 'Champaign', 'Lake Forest', 'Rockford'], correct_answer: 'Decatur', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
-  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Who invented Capoeira?', answers: ['Brazilian dancers', 'African slaves in Brazil', 'Gangs', 'Peasants'], correct_answer: 'African slaves in Brazil', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Which number is the ball which is purely yellow?', answers: ['9', '8', '1', '4'], correct_answer: '1', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'It was just after the 1933 championship game that Willie Mosconi was offered a job in the Better Billiards Program. Which company, the leading manufacturer of billiard tables, hired him at six hundred dollars a month?', answers: ['Jacoby', 'Brunswick-Balke-Collender', 'Tonkin', 'Baldwin'], correct_answer: 'Brunswick-Balke-Collender', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'A standard pool table can weigh ________.', answers: ['Over 500 pounds', '300 pounds', '350 pounds', '200 pounds'], correct_answer: 'Over 500 pounds', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'The Italian rider Tarquinio Provini has four Isle of Man TT wins to his name. With which team did he achieve the most of his wins?', answers: ['Kreidler', 'Mondial', 'MV Agusta', 'Benilli'], correct_answer: 'MV Agusta', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'On which date was Valentino Rossi born?', answers: ['February 19, 1981', 'February 7, 1982', 'February 1, 1977', 'February 16, 1979'], correct_answer: 'February 16, 1979', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'In which U.S. state is the Ironman championship usually held in?', answers: ['California', 'Hawaii', 'Florida', 'Maine'], correct_answer: 'Hawaii', game_id: 3)
+  Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'The triathlon is thought to originate from an event called "Les trois sports" which took place in the 1920s. In which country did this happen?', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
   Question.create(category: 'Sports', difficulty: 'Hard', question_text: 'Test', answers: ['Answer', 'Answer', 'Answer', 'Answer'], correct_answer: 'Answer', game_id: 3)
 
   #Pop Culture-Easy Questions
