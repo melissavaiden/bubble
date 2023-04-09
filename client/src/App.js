@@ -16,7 +16,6 @@ import EndOfGamePage from "./components/Pages/EndOfGamePage";
 
 
 function App() {
-  // const [user, setUser] = useState({})
   const [category, setCategory] = useState('')
   const [difficulty, setDifficulty] = useState('')
   const [allQuestions, setAllQuestions] = useState([])
@@ -54,7 +53,7 @@ function App() {
     <div className="App">
       <PageTitle />
         <Routes>
-          <Route exact path='/login' element={ <LoginPage  setUser={setUser} user={user}/> }></Route>
+          <Route exact path='/login' element={ <LoginPage/> }></Route>
           <Route exact path='/' element={ <LandingPage /> }></Route>
           <Route exact path='/signup' element={ <SignUpPage setUser={setUser}/> }></Route>
           <Route exact path='/me' element={ <HomePage user={user} setUser={setUser}/> }></Route>

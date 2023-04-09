@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate} from 'react-router-dom'
+import { UserContext } from '../Contexts/UserContext'
 import SignUpButton from '../Buttons/SignUpButton'
 
-function LoginPage({setUser, user}) {
+function LoginPage() {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [errors, setErrors] = useState()
     const navigate = useNavigate();
+    const {user, setUser} = useContext(UserContext)
+
 
     function handleSubmit(e) {
       e.preventDefault();
