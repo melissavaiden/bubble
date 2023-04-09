@@ -16,8 +16,6 @@ import EndOfGamePage from "./components/Pages/EndOfGamePage";
 
 
 function App() {
-  const [category, setCategory] = useState('')
-  const [difficulty, setDifficulty] = useState('')
   const [allQuestions, setAllQuestions] = useState([])
   const [currentGameScores, setCurrentGameScores] = useState([])
   const [popularGameScores, setPopularGameScores] = useState([])
@@ -60,8 +58,8 @@ function App() {
           <Route exact path='/my_account' element={ <MyAccountPage/> }></Route>
           <Route exact path='/category_selection' element={ <GameCategorySelection/> }></Route>
           <Route exact path='/difficulty_selection' element={ <DifficultySelection/> }></Route>
-          <Route exact path='/loading' element={ <GameLoadingPage category={category} difficulty={difficulty} setAllQuestions={setAllQuestions} setCurrentGameScores={setCurrentGameScores}/> }></Route>
-          <Route exact path='/gameplay' element={ <GamePlayPage category={category} difficulty={difficulty} allQuestions={allQuestions}/> }></Route>
+          <Route exact path='/loading' element={ <GameLoadingPage setAllQuestions={setAllQuestions} setCurrentGameScores={setCurrentGameScores}/> }></Route>
+          <Route exact path='/gameplay' element={ <GamePlayPage allQuestions={allQuestions}/> }></Route>
           <Route exact path='/gameover' element={ <EndOfGamePage currentGameScores={currentGameScores}/> }></Route>
         </Routes>
     </div>

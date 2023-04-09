@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
 import InGameScore from '../Scoreboards/InGameScore'
 import InGameTimer from '../Timer/InGameTimer'
+import { GameSelectionContext } from '../Contexts/GameSelectionContext'
 
-function GamePlayPage({ allQuestions}) {
+function GamePlayPage() {
+  const { allQuestions } = useContext(GameSelectionContext)
   const [nextQuestionIndex, setNextQuestionIndex] = useState(1)
   const [currentQuestion, setCurrentQuestion] = useState(allQuestions[0])
   const [nextQuestion, setNextQuestion] = useState(allQuestions[nextQuestionIndex])
