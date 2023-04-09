@@ -1,3 +1,3 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :category, :difficulty, :question_text, :image, :answers, :correct_answer, :game_id
+  attributes :id, :question_text, :answers, :correct_answer
 end
