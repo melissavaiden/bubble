@@ -1,7 +1,9 @@
-import React, { useState} from 'react'
+import React, { useState, useContext} from 'react'
+import { UserContext } from '../Contexts/UserContext'
 import NavBar from '../Banners-NavBar/NavBar'
 
-function MyAccountPage({user}) {
+function MyAccountPage() {
+  const {user, setUser} = useContext(UserContext)
   const [updateUser, setUpdateUser] = useState({
     username: user.username,
     name: user.name,
@@ -9,6 +11,7 @@ function MyAccountPage({user}) {
     password: user.password_digest,
     // avatar_pic: user.avatar_pic
   })
+
 
   // console.log(updateUser)
   
