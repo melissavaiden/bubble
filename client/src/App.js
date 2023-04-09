@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './index.css';
 import { Routes, Route } from 'react-router-dom';
-import UserContextProvider from "./components/Contexts/UserContext";
+import { UserContext } from "./components/Contexts/UserContext";
 import LoginPage from "./components/Pages/LoginPage";
 import PageTitle from "./components/PageTitle";
 import LandingPage from "./components/Pages/LandingPage";
@@ -16,7 +16,7 @@ import EndOfGamePage from "./components/Pages/EndOfGamePage";
 
 
 function App() {
-  const [user, setUser] = useState({})
+  // const [user, setUser] = useState({})
   const [category, setCategory] = useState('')
   const [difficulty, setDifficulty] = useState('')
   const [allQuestions, setAllQuestions] = useState([])
@@ -24,16 +24,18 @@ function App() {
   const [popularGameScores, setPopularGameScores] = useState([])
   const [errors, setErrors] = useState('')
 
-  useEffect(() => {
-    fetch("/random_scoreboard").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-      else {
-        setErrors('Error')
-      }
-    });
-  }, []);
+  const {user, setUser} = useContext(UserContext)
+
+  // useEffect(() => {
+  //   fetch("/random_scoreboard").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //     else {
+  //       setErrors('Error')
+  //     }
+  //   });
+  // }, []);
 
 
   useEffect(() => {
@@ -50,7 +52,6 @@ function App() {
 
   return (
     <div className="App">
-      <UserContextProvider>
       <PageTitle />
         <Routes>
           <Route exact path='/login' element={ <LoginPage  setUser={setUser} user={user}/> }></Route>
@@ -63,12 +64,7 @@ function App() {
           <Route exact path='/loading' element={ <GameLoadingPage category={category} difficulty={difficulty} setAllQuestions={setAllQuestions} setCurrentGameScores={setCurrentGameScores}/> }></Route>
           <Route exact path='/gameplay' element={ <GamePlayPage category={category} difficulty={difficulty} allQuestions={allQuestions}/> }></Route>
           <Route exact path='/gameover' element={ <EndOfGamePage currentGameScores={currentGameScores}/> }></Route>
-
-
-
         </Routes>
-      </UserContextProvider>
-
     </div>
   );
 }

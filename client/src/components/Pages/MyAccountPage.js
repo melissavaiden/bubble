@@ -1,6 +1,5 @@
-import React, {useContext, useState} from 'react'
+import React, { useState} from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
-import { UserContext } from '../Contexts/UserContext'
 
 function MyAccountPage({user}) {
   const [updateUser, setUpdateUser] = useState({
