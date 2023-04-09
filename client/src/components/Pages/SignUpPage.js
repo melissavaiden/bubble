@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoginButton from '../Buttons/LoginButton'
+import { UserContext } from '../Contexts/UserContext'
 
-function SignUpPage({setUser}) {
+function SignUpPage() {
   const [error, setError] = useState()
   const [newUser, setNewUser] = useState({
     username:"",
@@ -12,6 +13,8 @@ function SignUpPage({setUser}) {
     avatar_url: ""
   })
   const navigate = useNavigate();
+  const {user, setUser} = useContext(UserContext)
+
 
 
   function handleChange(e) {
@@ -21,7 +24,6 @@ function SignUpPage({setUser}) {
     })
   }
 
-  console.log(newUser)
   function handleSubmit(e) {
     e.preventDefault();
     fetch('/users', {
