@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
+import { UserContext } from '../Contexts/UserContext'
 
 function MyAccountPage({user}) {
   const [updateUser, setUpdateUser] = useState({
@@ -10,7 +11,7 @@ function MyAccountPage({user}) {
     // avatar_pic: user.avatar_pic
   })
 
-  console.log(updateUser)
+  // console.log(updateUser)
   
   function handleClick(e) {
     e.target.removeAttribute('readOnly')
@@ -33,6 +34,7 @@ function MyAccountPage({user}) {
     // let confirmation_div = document.querySelector('.update-confirmation')
     // confirmation_div.innerHTML = 'Your account has been successfully updated!'
   }
+
 
   return (
     <>

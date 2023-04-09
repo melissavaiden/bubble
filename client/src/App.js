@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './index.css';
 import { Routes, Route } from 'react-router-dom';
+import UserContextProvider from "./components/Contexts/UserContext";
 import LoginPage from "./components/Pages/LoginPage";
 import PageTitle from "./components/PageTitle";
 import LandingPage from "./components/Pages/LandingPage";
@@ -49,6 +50,7 @@ function App() {
 
   return (
     <div className="App">
+      <UserContextProvider>
       <PageTitle />
         <Routes>
           <Route exact path='/login' element={ <LoginPage  setUser={setUser} user={user}/> }></Route>
@@ -65,6 +67,8 @@ function App() {
 
 
         </Routes>
+      </UserContextProvider>
+
     </div>
   );
 }
