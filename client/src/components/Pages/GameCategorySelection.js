@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar'
+import { GameSelectionContext } from '../Contexts/GameSelectionContext';
 
-function GameCategorySelection({setCategory}) {
+function GameCategorySelection() {
   const navigate = useNavigate();
+  const { setCategory } = useContext(GameSelectionContext) 
 
   function handleClick(e) {
     const category = e.target.innerHTML

@@ -57,9 +57,9 @@ function App() {
           <Route exact path='/' element={ <LandingPage /> }></Route>
           <Route exact path='/signup' element={ <SignUpPage/> }></Route>
           <Route exact path='/me' element={ <HomePage/> }></Route>
-          <Route exact path='/my_account' element={ <MyAccountPage user={user}/> }></Route>
-          <Route exact path='/category_selection' element={ <GameCategorySelection setCategory={setCategory}/> }></Route>
-          <Route exact path='/difficulty_selection' element={ <DifficultySelection category={category} setDifficulty={setDifficulty}/> }></Route>
+          <Route exact path='/my_account' element={ <MyAccountPage/> }></Route>
+          <Route exact path='/category_selection' element={ <GameCategorySelection/> }></Route>
+          <Route exact path='/difficulty_selection' element={ <DifficultySelection/> }></Route>
           <Route exact path='/loading' element={ <GameLoadingPage category={category} difficulty={difficulty} setAllQuestions={setAllQuestions} setCurrentGameScores={setCurrentGameScores}/> }></Route>
           <Route exact path='/gameplay' element={ <GamePlayPage category={category} difficulty={difficulty} allQuestions={allQuestions}/> }></Route>
           <Route exact path='/gameover' element={ <EndOfGamePage currentGameScores={currentGameScores}/> }></Route>

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../Banners-NavBar/NavBar';
+import { GameSelectionContext } from '../Contexts/GameSelectionContext';
 
 
-function DifficultySelection({category, setDifficulty}) {
+function DifficultySelection() {
     const navigate = useNavigate();
+    const { category, setDifficulty } = useContext(GameSelectionContext) 
+
 
 
 

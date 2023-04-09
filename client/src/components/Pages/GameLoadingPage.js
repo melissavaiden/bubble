@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { GameSelectionContext } from '../Contexts/GameSelectionContext';
 
 
-function GameLoadingPage({difficulty, category, setAllQuestions, setCurrentGameScores}) {
+function GameLoadingPage({ setAllQuestions, setCurrentGameScores}) {
   const [num, setNum] = useState(5)
   const navigate = useNavigate();
+  const { difficulty, category} = useContext(GameSelectionContext)
 
 
 
