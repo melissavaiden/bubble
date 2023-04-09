@@ -37,6 +37,28 @@ function MyAccountPage() {
     // confirmation_div.innerHTML = 'Your account has been successfully updated!'
   }
 
+  function handleChangePassword() {
+    return (
+       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+         </div>
+        </div>
+      </div>
+    )
+  }
+
 
   return (
     <>
@@ -61,8 +83,32 @@ function MyAccountPage() {
           <input type='file' className='form-control col' name='image' placeholder='image' onChange={handleChange}></input>
         </div>
         <br></br>
-        <button type='submit' className='btn btn-danger'>Change Password</button>
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Change Password</button>
         <button type='submit' className='btn btn-primary'>Save Changes</button>
+        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <div className='mb-3'>
+                <label className="col-form-label">Current Password:</label>
+                <input type="password" className="form-control" id="current-password"></input>
+              </div>
+              <div className='mb-3'>
+                <label className="col-form-label">New Password:</label>
+                <input type="password" className="form-control" id="new-password"></input>
+              </div>
+            </div>
+            <div className="modal-footer">
+            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" className="btn btn-primary">Save Changes</button>
+            </div>
+         </div>
+        </div>
+      </div>
       </form>
     </>
 
