@@ -4,7 +4,7 @@ function PostGameScoreboard({currentGameScores}) {
 
     let userScores = currentGameScores.map((score) => {
         return (
-            <tr>
+            <tr key={score.id}>
                 <td>{score.user.username}</td>
                 <td>{score.score}</td>
             </tr>

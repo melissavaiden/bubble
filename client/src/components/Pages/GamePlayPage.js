@@ -44,10 +44,10 @@ function GamePlayPage() {
       <div>
         <InGameScore score={score}/>
       </div>
-      <div className='card game-question'>
+      <div className='container game-question'>
         {gameQuestion}
       </div>
-      <div>
+      <div className='container'>
         {gameAnswers}
       </div>
       <InGameTimer />

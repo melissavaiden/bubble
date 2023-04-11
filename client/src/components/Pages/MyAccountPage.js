@@ -1,5 +1,6 @@
 import React, { useState, useContext} from 'react'
 import { UserContext } from '../Contexts/UserContext'
+import { DirectUpload } from 'activestorage';
 import NavBar from '../Banners-NavBar/NavBar'
 
 function MyAccountPage() {
@@ -8,8 +9,7 @@ function MyAccountPage() {
     username: user.username,
     name: user.name,
     email: user.email,
-    // password: user.password_digest,
-    // avatar_pic: user.avatar_pic
+    image: ''
   })
 
   console.log(user)
@@ -20,18 +20,26 @@ function MyAccountPage() {
   }
 
   function handleChange(e) {
-    setUpdateUser({
-      ...updateUser,
-      [e.target.name] : e.target.value
-    })
+    if (e.target.name === 'image') {
+      setUpdateUser({
+        ...updateUser,
+        [e.target.name] : e.target.files[0]
+      })
+    } else {
+      setUpdateUser({
+        ...updateUser,
+        [e.target.name] : e.target.value
+      })
+    }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    const data = new FormData();
+    
+    // const data = new FormData();
 
-    data.append("user[image]", e.target.image.file[0])
-    data.append("user[]")
+    // data.append("user[image]", e.target.image.file[0])
+    // data.append("user[]")
 
     // let confirmation_div = document.querySelector('.update-confirmation')
     // confirmation_div.innerHTML = 'Your account has been successfully updated!'
