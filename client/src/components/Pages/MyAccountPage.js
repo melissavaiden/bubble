@@ -11,13 +11,7 @@ function MyAccountPage() {
     email: user.email,
     image: ''
   })
-
-  console.log(user)
-  console.log(updateUser)
   
-  function handleClick(e) {
-    e.target.removeAttribute('readOnly')
-  }
 
   function handleChange(e) {
     if (e.target.name === 'image') {
@@ -35,11 +29,31 @@ function MyAccountPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    
-    // const data = new FormData();
+    const upload = new DirectUpload(updateUser.image, 'http://localhost:3000/rails/active_storage/direct_uploads')
+    upload.create((error, blob) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('no error')
+      }
+    })
 
-    // data.append("user[image]", e.target.image.file[0])
-    // data.append("user[]")
+
+    // fetch(`/users/${user.id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     "username": updateUser.username,
+    //     "name": updateUser.name,
+    //     "email": updateUser.email,
+    //     "image": blob.signed_id
+    //   }),
+    // })
+    // .then((r) => r.json())
+    // .then((user) => console.log(user))
+
 
     // let confirmation_div = document.querySelector('.update-confirmation')
     // confirmation_div.innerHTML = 'Your account has been successfully updated!'
@@ -56,12 +70,12 @@ function MyAccountPage() {
       <form className='container' onSubmit={handleSubmit}>
         <div className="row justify-content-evenly">
           <label className='form-label col'>Username:</label>
-          <input type='username' className='form-control col username-input' name='username' placeholder={user.username} onChange={handleChange} onClick={handleClick} readOnly></input>
+          <input type='username' className='form-control col username-input' name='username' placeholder={user.username} onChange={handleChange}></input>
         </div>
         <br></br>
         <div className="row justify-content-evenly">
           <label className='form-label col'>Name:</label>
-          <input type='name' className='form-control col name-input' name='name' placeholder={user.name} onChange={handleChange} onClick={handleClick} readOnly></input>
+          <input type='name' className='form-control col name-input' name='name' placeholder={user.name} onChange={handleChange}></input>
         </div>
         <br></br>
         <div className='row justify-content-evenly'> 
