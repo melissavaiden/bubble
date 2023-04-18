@@ -16,7 +16,6 @@ import EndOfGamePage from "./components/Pages/EndOfGamePage";
 
 
 function App() {
-  // const [currentGameScores, setCurrentGameScores] = useState([])
   const [popularGameScores, setPopularGameScores] = useState([])
   const [errors, setErrors] = useState('')
 

@@ -50,7 +50,7 @@ function GamePlayPage() {
       <div className='container'>
         {gameAnswers}
       </div>
-      <InGameTimer />
+      <InGameTimer score={score}/>
     </div>
   )
 }

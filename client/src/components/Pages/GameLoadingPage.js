@@ -4,7 +4,7 @@ import { GameSelectionContext } from '../Contexts/GameSelectionContext';
 
 
 function GameLoadingPage() {
-  const { difficulty, category, setAllQuestions, setCurrentGameScores } = useContext(GameSelectionContext)
+  const { difficulty, category, setAllQuestions, setCurrentGameScores, setGame } = useContext(GameSelectionContext)
   const [num, setNum] = useState(5)
   const navigate = useNavigate();
 
@@ -13,6 +13,7 @@ function GameLoadingPage() {
     fetch(`/${category}/${difficulty}`)
     .then((r) => r.json())
     .then((game) => {
+      setGame(game)
       setAllQuestions(game.questions)
       setCurrentGameScores(game.scores)
     })
