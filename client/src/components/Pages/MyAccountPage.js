@@ -27,37 +27,53 @@ function MyAccountPage() {
     }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const upload = new DirectUpload(updateUser.image, 'http://localhost:3000/rails/active_storage/direct_uploads')
+  function uploadfile(file, user) {
+    console.log(file)
+    console.log(user)
+    const upload = new DirectUpload(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
+
     upload.create((error, blob) => {
       if (error) {
         console.log(error)
       } else {
-        console.log('no error')
-      }
+        debugger;
+          // fetch(`/users/${user.id}`, {
+          //   method: "PUT",
+          //   headers: {
+          //     "Content-Type": "application/json"
+          //   },
+          //   body: JSON.stringify({image: blob.signed_id})
+          // })
+          // .then((r) => r.json())
+          // .then((r) => console.log(r))
+        }
     })
+  }
 
 
-    // fetch(`/users/${user.id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     "username": updateUser.username,
-    //     "name": updateUser.name,
-    //     "email": updateUser.email,
-    //     "image": blob.signed_id
-    //   }),
-    // })
-    // .then((r) => r.json())
-    // .then((user) => console.log(user))
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch(`/users/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "username": updateUser.username,
+        "name": updateUser.name,
+        "email": updateUser.email,
+      }),
+    })
+    .then((r) => r.json())
+    .then((user) => uploadfile(updateUser.image, user))
+
+    }
+
 
 
     // let confirmation_div = document.querySelector('.update-confirmation')
     // confirmation_div.innerHTML = 'Your account has been successfully updated!'
-  }
 
 
   return (

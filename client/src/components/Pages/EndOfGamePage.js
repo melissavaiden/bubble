@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NavBar from '../Banners-NavBar/NavBar'
 import PostGameScoreboard from '../Scoreboards/PostGameScoreboard'
+import { GameSelectionContext } from '../Contexts/GameSelectionContext'
 
-function EndOfGamePage({currentGameScores}) {
+function EndOfGamePage() {
+  const { currentGameScores } = useContext(GameSelectionContext)
+
   return (
     <>
       <div> <NavBar /> </div>

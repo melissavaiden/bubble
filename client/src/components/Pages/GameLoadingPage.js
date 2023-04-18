@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { GameSelectionContext } from '../Contexts/GameSelectionContext';
 
 
-function GameLoadingPage({ setCurrentGameScores}) {
-  const { difficulty, category, setAllQuestions } = useContext(GameSelectionContext)
+function GameLoadingPage() {
+  const { difficulty, category, setAllQuestions, setCurrentGameScores } = useContext(GameSelectionContext)
   const [num, setNum] = useState(5)
   const navigate = useNavigate();
 
