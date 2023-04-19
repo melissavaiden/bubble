@@ -9,17 +9,17 @@
 puts 'SEEDING!'
 
   #Users
-  User.create(username: 'MelissaV', name: 'Melissa Vaiden', email: 'melissavaiden@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user1', name: 'user 1', email: 'user1@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user2', name: 'user2', email: 'user2@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user3', name: 'user3', email: 'user3@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user4', name: 'user4', email: 'user4@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user5', name: 'user5', email: 'user5@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user6', name: 'user6', email: 'user6@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user7', name: 'user7', email: 'user7@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user8', name: 'user8', email: 'user8@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user9', name: 'user9', email: 'user9@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
-  User.create(username: 'user10', name: 'user10', email: 'user10@gmail.com', password: 'hello', avatar_pic:'https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_480,c_limit,dpr_2.5/v1519157597/gxesi7tka0rdeifx5feh.png')
+  User.create(username: 'MelissaV', name: 'Melissa Vaiden', email: 'melissavaiden@gmail.com', password: 'hello')
+  User.create(username: 'user1', name: 'user 1', email: 'user1@gmail.com', password: 'hello')
+  User.create(username: 'user2', name: 'user2', email: 'user2@gmail.com', password: 'hello')
+  User.create(username: 'user3', name: 'user3', email: 'user3@gmail.com', password: 'hello')
+  User.create(username: 'user4', name: 'user4', email: 'user4@gmail.com', password: 'hello')
+  User.create(username: 'user5', name: 'user5', email: 'user5@gmail.com', password: 'hello')
+  User.create(username: 'user6', name: 'user6', email: 'user6@gmail.com', password: 'hello')
+  User.create(username: 'user7', name: 'user7', email: 'user7@gmail.com', password: 'hello')
+  User.create(username: 'user8', name: 'user8', email: 'user8@gmail.com', password: 'hello')
+  User.create(username: 'user9', name: 'user9', email: 'user9@gmail.com', password: 'hello')
+  User.create(username: 'user10', name: 'user10', email: 'user10@gmail.com', password: 'hello')
 
   #Games
   Game.create(category: 'Sports', difficulty: 'Easy')

@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoginButton from '../Buttons/LoginButton'
 import { UserContext } from '../Contexts/UserContext'
+import { ErrorContext } from '../Contexts/ErrorContext'
 
 function SignUpPage() {
-  const [error, setError] = useState()
   const [newUser, setNewUser] = useState({
     username:"",
     name:"",
@@ -14,6 +14,9 @@ function SignUpPage() {
   })
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext)
+  const {errors, setErrors} = useContext(ErrorContext)
+
+
 
 
 
@@ -60,7 +63,7 @@ function SignUpPage() {
           })
         })
       } else {
-        r.json().then((error) => setError(error.error))
+        r.json().then((error) => setErrors(error.error))
       }
     })
   }
@@ -68,7 +71,7 @@ function SignUpPage() {
   return (
     <div className='container'>
       <h1 className='page_title'>Sign Up</h1>
-      {error}
+      {errors}
       <form onSubmit={handleSubmit}>
         <div className="form-floating">
           <input type='username' className='form-control' name='username' placeholder='username' onChange={handleChange}></input>

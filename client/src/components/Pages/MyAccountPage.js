@@ -9,10 +9,10 @@ function MyAccountPage() {
     username: user.username,
     name: user.name,
     email: user.email,
-    image: user.image
+    image: user.image_url
   })
-  
 
+  
   function handleChange(e) {
     if (e.target.name === 'image') {
       setUpdateUser({
@@ -26,29 +26,6 @@ function MyAccountPage() {
       })
     }
   }
-
-  // function uploadfile(file, user) {
-  //   console.log(file)
-  //   console.log(user)
-  //   const upload = new DirectUpload(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
-
-  //   upload.create((error, blob) => {
-  //     if (error) {
-  //       console.log(error)
-  //     } else {
-  //       debugger;
-  //         // fetch(`/users/${user.id}`, {
-  //         //   method: "PUT",
-  //         //   headers: {
-  //         //     "Content-Type": "application/json"
-  //         //   },
-  //         //   body: JSON.stringify({image: blob.signed_id})
-  //         // })
-  //         // .then((r) => r.json())
-  //         // .then((r) => console.log(r))
-  //       }
-  //   })
-  // }
 
 
 
@@ -73,8 +50,23 @@ function MyAccountPage() {
       .then((user) => console.log(user))
 
     }
-    // let confirmation_div = document.querySelector('.update-confirmation')
-    // confirmation_div.innerHTML = 'Your account has been successfully updated!'
+
+  function handleSubmitNewPassword() {
+    const newPassword = document.getElementById('new-password').value
+    const currentPassword = document.getElementById('current-password').value
+    fetch(`/users/${user.id}`, {
+      method: "PATCH",
+      headers: {        
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        password: newPassword,
+        currentPassword: currentPassword
+      })
+    })
+    .then((r) => r.json())
+    .then((password) => console.log(password))
+  }
 
 
   return (
@@ -102,7 +94,8 @@ function MyAccountPage() {
         <br></br>
         <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
-          <input type='file' className='form-control col' name='image' placeholder={user.image} onChange={handleChange}></input>
+          <img src={user.image_url}></img>
+          <input type='file' className='form-control col' name='image' onChange={handleChange}></input>
         </div>
         <br></br>
         <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Change Password</button>
@@ -126,7 +119,7 @@ function MyAccountPage() {
             </div>
             <div className="modal-footer">
             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" className="btn btn-primary">Save Changes</button>
+            <button type="button" className="btn btn-primary" onClick={handleSubmitNewPassword}>Save Changes</button>
             </div>
          </div>
         </div>
