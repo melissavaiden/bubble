@@ -63,7 +63,7 @@ function SignUpPage() {
           })
         })
       } else {
-        r.json().then((error) => setErrors(error.error))
+        r.json().then((error) => console.log(error))
       }
     })
   }

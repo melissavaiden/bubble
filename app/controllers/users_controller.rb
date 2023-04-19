@@ -21,12 +21,10 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.create!(user_params)
-      if @user.valid?
-        session[:user_id] = @user.id
-        render json: @user, status: :ok
-      else
-        render json: { error: "Username already taken :( Please try again." }, status: :unprocessable_entity
-      end
+    session[:user_id] = @user.id
+    render json: @user, status: :ok
+  rescue ActiveRecord::RecordInvalid => invalid
+    render json: { error: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end
 
   # PATCH/PUT /users/1
