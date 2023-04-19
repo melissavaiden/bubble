@@ -31,9 +31,8 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    byebug
     if @user.update(user_params)
-      # image = @user.to_json(include: [:image])
+      image = @user.to_json(include: [:image])
       render json: { user: @user, image: image }
     else
       render json: @user.errors, status: :unprocessable_entity

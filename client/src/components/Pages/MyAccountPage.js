@@ -9,7 +9,7 @@ function MyAccountPage() {
     username: user.username,
     name: user.name,
     email: user.email,
-    image: ''
+    image: user.image
   })
   
 
@@ -102,7 +102,7 @@ function MyAccountPage() {
         <br></br>
         <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
-          <input type='file' className='form-control col' name='image' placeholder='image' onChange={handleChange}></input>
+          <input type='file' className='form-control col' name='image' placeholder={user.image} onChange={handleChange}></input>
         </div>
         <br></br>
         <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Change Password</button>
