@@ -2,6 +2,9 @@ import React, { useContext } from 'react'
 import { UserContext } from '../Contexts/UserContext'
 
 function MyScoreboard() {
+  const { user } = useContext(UserContext)
+  console.log(user)
+
   return (
     <div className='container my-scoreboard-container'>
         <div className='card'>

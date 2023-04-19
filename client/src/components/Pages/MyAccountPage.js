@@ -1,7 +1,7 @@
 import React, { useState, useContext} from 'react'
 import { UserContext } from '../Contexts/UserContext'
-import { DirectUpload } from 'activestorage';
 import NavBar from '../Banners-NavBar/NavBar'
+
 
 function MyAccountPage() {
   const {user, setUser} = useContext(UserContext)
@@ -27,51 +27,52 @@ function MyAccountPage() {
     }
   }
 
-  function uploadfile(file, user) {
-    console.log(file)
-    console.log(user)
-    const upload = new DirectUpload(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
+  // function uploadfile(file, user) {
+  //   console.log(file)
+  //   console.log(user)
+  //   const upload = new DirectUpload(file, 'http://localhost:3000/rails/active_storage/direct_uploads')
 
-    upload.create((error, blob) => {
-      if (error) {
-        console.log(error)
-      } else {
-        debugger;
-          // fetch(`/users/${user.id}`, {
-          //   method: "PUT",
-          //   headers: {
-          //     "Content-Type": "application/json"
-          //   },
-          //   body: JSON.stringify({image: blob.signed_id})
-          // })
-          // .then((r) => r.json())
-          // .then((r) => console.log(r))
-        }
-    })
-  }
+  //   upload.create((error, blob) => {
+  //     if (error) {
+  //       console.log(error)
+  //     } else {
+  //       debugger;
+  //         // fetch(`/users/${user.id}`, {
+  //         //   method: "PUT",
+  //         //   headers: {
+  //         //     "Content-Type": "application/json"
+  //         //   },
+  //         //   body: JSON.stringify({image: blob.signed_id})
+  //         // })
+  //         // .then((r) => r.json())
+  //         // .then((r) => console.log(r))
+  //       }
+  //   })
+  // }
 
 
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`/users/${user.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "username": updateUser.username,
-        "name": updateUser.name,
-        "email": updateUser.email,
-      }),
-    })
-    .then((r) => r.json())
-    .then((user) => uploadfile(updateUser.image, user))
+    const data = new FormData();
 
+    data.append("user[image]", updateUser.image)
+    data.append("user[username]", updateUser.username)
+    data.append("user[name]", updateUser.name)
+    data.append("user[email]", updateUser.email)
+    submitToAPI(data)
     }
 
+    function submitToAPI(data) {
+      fetch(`/users/${user.id}`, {
+        method: "PATCH",
+        headers: {},
+        body: data
+      })
+      .then((r) => r.json())
+      .then((user) => console.log(user))
 
-
+    }
     // let confirmation_div = document.querySelector('.update-confirmation')
     // confirmation_div.innerHTML = 'Your account has been successfully updated!'
 
@@ -86,17 +87,17 @@ function MyAccountPage() {
       <form className='container' onSubmit={handleSubmit}>
         <div className="row justify-content-evenly">
           <label className='form-label col'>Username:</label>
-          <input type='username' className='form-control col username-input' name='username' placeholder={user.username} onChange={handleChange}></input>
+          <input type='username' className='form-control col username-input' name='username' value={updateUser.username} placeholder={user.username} onChange={handleChange}></input>
         </div>
         <br></br>
         <div className="row justify-content-evenly">
           <label className='form-label col'>Name:</label>
-          <input type='name' className='form-control col name-input' name='name' placeholder={user.name} onChange={handleChange}></input>
+          <input type='text' className='form-control col name-input' name='name' value={updateUser.name} placeholder={user.name} onChange={handleChange}></input>
         </div>
         <br></br>
         <div className='row justify-content-evenly'> 
           <label className='form-label col'>Email:</label>
-          <input type='email' className='form-control col email-input' name='email' placeholder={user.email} onChange={handleChange}></input>
+          <input type='email' className='form-control col email-input' name='email' value={updateUser.email} placeholder={user.email} onChange={handleChange}></input>
         </div>
         <br></br>
         <div className='row justify-content-evenly'>

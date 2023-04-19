@@ -31,9 +31,10 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    byebug
     if @user.update(user_params)
-      # image = rails_blob_path(@user.image)
-      render json: { user: @user }
+      # image = @user.to_json(include: [:image])
+      render json: { user: @user, image: image }
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -52,6 +53,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:username, :name, :email, :password, :avatar_pic, :image)
+      params.require(:user).permit(:username, :name, :email, :password, :avatar_pic, :image)
     end
 end
