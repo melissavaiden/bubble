@@ -4,7 +4,8 @@ export const ErrorContext = createContext();
 
 
 const ErrorContextProvider = (props) => {
-    const [errors, setErrors] = useState()
+    const [errors, setErrors] = useState([])
+
 
   return (
     <ErrorContext.Provider value={{errors, setErrors}}>{props.children}</ErrorContext.Provider>

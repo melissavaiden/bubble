@@ -76,3 +76,9 @@ html {
     margin: 5px;
 }
 
+.errorItem {
+    width: fit-content;
+    text-align: center;
+}
+
+

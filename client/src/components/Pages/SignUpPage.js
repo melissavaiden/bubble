@@ -18,8 +18,6 @@ function SignUpPage() {
 
 
 
-
-
   function handleChange(e) {
     setNewUser({
       ...newUser,
@@ -63,15 +61,21 @@ function SignUpPage() {
           })
         })
       } else {
-        r.json().then((error) => console.log(error))
+        r.json().then((error) => setErrors(error.error))
       }
     })
   }
 
+ let errorsList = errors.map((error) => {
+  return <li key={error}>{error}</li>
+ })
+
+ console.log(errorsList)
+
   return (
     <div className='container'>
       <h1 className='page_title'>Sign Up</h1>
-      {errors}
+      {errorsList}
       <form onSubmit={handleSubmit}>
         <div className="form-floating">
           <input type='username' className='form-control' name='username' placeholder='username' onChange={handleChange}></input>
