@@ -14,7 +14,7 @@ function SignUpPage() {
   })
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext)
-  const {errors, setErrors} = useContext(ErrorContext)
+  const { setErrors, errorsList} = useContext(ErrorContext)
 
 
 
@@ -65,12 +65,6 @@ function SignUpPage() {
       }
     })
   }
-
- let errorsList = errors.map((error) => {
-  return <li key={error}>{error}</li>
- })
-
- console.log(errorsList)
 
   return (
     <div className='container'>

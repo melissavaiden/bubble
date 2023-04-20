@@ -10,7 +10,7 @@ function PageTitle() {
   }
 
   return (
-    <div>
+    <div className='page-title-container'>
         <h1 className='page-title' onClick={handleClick}>Bubble</h1>
     </div>
   )

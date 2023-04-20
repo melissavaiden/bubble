@@ -4,7 +4,7 @@ function LandingPageBanner() {
   return (
     <>
       <div className='landing-page-banner'>
-        <h2>Test your skills today!</h2>
+        <h2 className='landing-page-banner-child'>Test your skills today!</h2>
       </div>
     </>
 

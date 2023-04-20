@@ -7,7 +7,6 @@ html {
 
 .App {
     text-align: center;
-    /* background-color: rgb(246, 246, 242); */
 
 }
 
@@ -32,8 +31,13 @@ html {
 }
 
 .page-title {
-    margin: 10px;
+    margin: auto;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    border: 7px solid cornflowerblue;
 }
+
 
 .level-card {
     height: 100px;
@@ -81,4 +85,12 @@ html {
     text-align: center;
 }
 
+.container {
+    background-color: #FFFFE6;
+}
+
+.landing-page-banner-child {
+    margin: auto;
+    padding: 20px;
+}
 
