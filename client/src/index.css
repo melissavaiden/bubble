@@ -7,6 +7,10 @@ html {
 
 .App {
     text-align: center;
+    background: #FF8DFF;
+    background: -moz-radial-gradient(center, #FF8DFF 0%, #75CBFC 100%);
+    background: -webkit-radial-gradient(center, #FF8DFF 0%, #75CBFC 100%);
+    background: radial-gradient(ellipse at center, #FF8DFF 0%, #75CBFC 100%);
 
 }
 
@@ -36,6 +40,7 @@ html {
     width: fit-content;
     border-radius: 20px;
     border: 7px solid cornflowerblue;
+    background-color: #FFFFE6;
 }
 
 
@@ -87,6 +92,8 @@ html {
 
 .container {
     background-color: #FFFFE6;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 .landing-page-banner-child {

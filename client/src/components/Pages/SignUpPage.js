@@ -10,19 +10,26 @@ function SignUpPage() {
     name:"",
     email:"",
     password:"",
-    avatar_url: ""
+    image: ""
   })
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext)
   const { setErrors, errorsList} = useContext(ErrorContext)
 
 
-
+  console.log(newUser)
   function handleChange(e) {
-    setNewUser({
-      ...newUser,
-      [e.target.name] : e.target.value
-    })
+    if (e.target.name === 'image') {
+      setNewUser({
+        ...newUser,
+        [e.target.name] : e.target.files[0]
+      })
+    } else {
+      setNewUser({
+        ...newUser,
+        [e.target.name] : e.target.value
+      })
+    }
   }
 
   function handleSubmit(e) {
@@ -37,7 +44,6 @@ function SignUpPage() {
         "name": newUser.name,
         "email": newUser.email,
         "password": newUser.password,
-        "avatar_url": newUser.avatar_url
       }),
     })
     .then((r) => {
@@ -66,6 +72,7 @@ function SignUpPage() {
     })
   }
 
+  console.log(errorsList)
   return (
     <div className='container'>
       <h1 className='page_title'>Sign Up</h1>

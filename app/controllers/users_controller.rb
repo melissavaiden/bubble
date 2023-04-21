@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create!(user_params)
     session[:user_id] = @user.id
-    render json: @user, status: :ok
+    image = @user.to_json(include: [:image])
+    render json: { user: @user, image: image}, status: :ok
   rescue ActiveRecord::RecordInvalid => invalid
     render json: { error: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end

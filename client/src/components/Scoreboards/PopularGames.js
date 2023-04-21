@@ -4,27 +4,16 @@ function PopularGames() {
   return (
     <>
     <div className='container'>
-    <div className='col'>
-        <h3>Game</h3>
-        <table className='table'>
-            <thead>
-                <tr>
-                    <td>username</td>
-                    <td>score</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>data</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>data</td>
-                    <td>data</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div className='card'>
+            <div className='card-title'>
+                Top High Scores
+            </div>
+            <ul className='list-group list-group-flush'>
+                <li className='list-group-item'>Score</li>
+                <li className='list-group-item'>Score</li>
+                <li className='list-group-item'>Score</li>
+            </ul>
+        </div>
     </div>
     </>
 
