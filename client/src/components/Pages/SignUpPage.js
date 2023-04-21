@@ -34,17 +34,22 @@ function SignUpPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    const data = new FormData();
+
+    data.append("user[image]", newUser.image)
+    data.append("user[username]", newUser.username)
+    data.append("user[name]", newUser.name)
+    data.append("user[email]", newUser.email)
+    data.append("user[password]", newUser.password)
+
+    submitToAPI(data)
+    }
+
+  function submitToAPI(data) {
     fetch('/users', {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "username": newUser.username,
-        "name": newUser.name,
-        "email": newUser.email,
-        "password": newUser.password,
-      }),
+      headers: {},
+      body: data,
     })
     .then((r) => {
       if (r.ok) {
