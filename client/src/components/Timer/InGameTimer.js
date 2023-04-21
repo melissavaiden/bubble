@@ -4,9 +4,9 @@ import { UserContext } from '../Contexts/UserContext'
 import { GameSelectionContext } from '../Contexts/GameSelectionContext'
 
 
-function InGameTimer({score}) {
+function InGameTimer() {
     const {user} = useContext(UserContext)
-    const {game} = useContext(GameSelectionContext)
+    const {game, score} = useContext(GameSelectionContext)
     const [num, setNum] = useState(30)
     const navigate = useNavigate();
 

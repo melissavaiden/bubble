@@ -10,6 +10,9 @@ function EndOfGamePage() {
     <>
       <div> <NavBar /> </div>
       <h1>GAME OVER!!</h1>
+      <div className='container'>
+        <h2>Your Score is: </h2>
+      </div>
       <div> <PostGameScoreboard currentGameScores={currentGameScores}/> </div>
     </>
   )

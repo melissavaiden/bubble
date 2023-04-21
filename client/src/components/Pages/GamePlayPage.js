@@ -5,11 +5,10 @@ import InGameTimer from '../Timer/InGameTimer'
 import { GameSelectionContext } from '../Contexts/GameSelectionContext'
 
 function GamePlayPage() {
-  const { allQuestions } = useContext(GameSelectionContext)
+  const { allQuestions, score, setScore } = useContext(GameSelectionContext)
   const [nextQuestionIndex, setNextQuestionIndex] = useState(1)
   const [currentQuestion, setCurrentQuestion] = useState(allQuestions[0])
   const [nextQuestion, setNextQuestion] = useState(allQuestions[nextQuestionIndex])
-  const [score, setScore] = useState(0)
 
   console.log('Correct Answer:', currentQuestion.correct_answer)
   console.log('Next Question Index:', nextQuestionIndex)
@@ -42,7 +41,7 @@ function GamePlayPage() {
     <div className='container'>
       <NavBar />
       <div>
-        <InGameScore score={score}/>
+        <InGameScore/>
       </div>
       <div className='container game-question'>
         {gameQuestion}
@@ -50,7 +49,7 @@ function GamePlayPage() {
       <div className='container'>
         {gameAnswers}
       </div>
-      <InGameTimer score={score}/>
+      <InGameTimer />
     </div>
   )
 }

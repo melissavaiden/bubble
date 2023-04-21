@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GameSelectionContext } from '../Contexts/GameSelectionContext'
 
-function InGameScore({score}) {
+function InGameScore() {
+  const { score } = useContext(GameSelectionContext)
+
   return (
     <div>SCORE: {score}</div>
   )
