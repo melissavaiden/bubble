@@ -15,4 +15,5 @@ class ScoreSerializer < ActiveModel::Serializer
     difficulty = game.difficulty
     difficulty
   end
+  
 end

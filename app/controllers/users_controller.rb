@@ -29,12 +29,13 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
-      image = @user.to_json(include: [:image])
-      render json: { user: @user, image: image }
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+    @user = User.find_by(id: params[:id])
+    byebug
+    @user.update!(user_params)
+      # image = @user.to_json(include: [:image])
+    render json: @user, status: :ok
+  rescue ActiveRecord::RecordInvalid => invalid
+    render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end
 
   # DELETE /users/1
