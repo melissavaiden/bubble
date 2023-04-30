@@ -13,7 +13,9 @@ function HomePage() {
             <div>
                 <NavBar setUser={setUser}/>
             </div>
-            <h2>Welcome {user.username}!</h2>
+            <h2>Welcome {user.username}!
+            <img className='img-thumbnail' src={user.image_url}></img>
+            </h2>
               <MyScoreboard />
               <MyGames />
         </div>

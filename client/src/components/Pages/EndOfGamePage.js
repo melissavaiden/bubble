@@ -4,14 +4,14 @@ import PostGameScoreboard from '../Scoreboards/PostGameScoreboard'
 import { GameSelectionContext } from '../Contexts/GameSelectionContext'
 
 function EndOfGamePage() {
-  const { currentGameScores } = useContext(GameSelectionContext)
+  const { currentGameScores, score } = useContext(GameSelectionContext)
 
   return (
     <>
       <div> <NavBar /> </div>
       <h1>GAME OVER!!</h1>
       <div className='container'>
-        <h2>Your Score is: </h2>
+        <h2>Your Score is: {score} </h2>
       </div>
       <div> <PostGameScoreboard currentGameScores={currentGameScores}/> </div>
     </>

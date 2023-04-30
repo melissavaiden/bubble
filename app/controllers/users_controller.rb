@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
+  before_action :set_user, only: %i[ show destroy ]
 
   # GET /users
   def index
@@ -22,8 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create!(user_params)
     session[:user_id] = @user.id
-    image = @user.to_json(include: [:image])
-    render json: { user: @user, image: image}, status: :ok
+    render json: @user, status: :ok
   rescue ActiveRecord::RecordInvalid => invalid
     render json: { error: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end
@@ -51,6 +50,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :name, :email, :password, :image)
+      params.require(:user).permit(:username, :name, :email, :password, :image).select { |x,v|v.present? }
     end
 end

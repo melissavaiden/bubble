@@ -101,3 +101,17 @@ html {
     padding: 20px;
 }
 
+.img-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+.account-page-img-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+}
+

@@ -17,7 +17,6 @@ function SignUpPage() {
   const { setErrors, errorsList} = useContext(ErrorContext)
 
 
-  console.log(newUser)
   function handleChange(e) {
     if (e.target.name === 'image') {
       setNewUser({
@@ -55,21 +54,7 @@ function SignUpPage() {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user)
-          fetch('/login', {
-            method: 'POST', 
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              "username" : newUser.username,
-              "password" : newUser.password
-            }),
-          })
-          .then((r) => {
-            if (r.ok) {
-              navigate('/me')
-            }
-          })
+          navigate('/me')
         })
       } else {
         r.json().then((error) => setErrors(error.error))
@@ -77,35 +62,34 @@ function SignUpPage() {
     })
   }
 
-  console.log(errorsList)
   return (
     <div className='container'>
       <h1 className='page_title'>Sign Up</h1>
       {errorsList}
       <form onSubmit={handleSubmit}>
         <div className="form-floating">
-          <input type='username' className='form-control' name='username' placeholder='username' onChange={handleChange}></input>
+          <input type='username' className='form-control' name='username' placeholder='username' onChange={handleChange} ></input>
           <label>Username</label>
           <br></br>
         </div>
         <div className='form-floating'>
-          <input type='name' className='form-control' name='name' placeholder='name' onChange={handleChange}></input>
+          <input type='name' className='form-control' name='name' placeholder='name' onChange={handleChange} ></input>
           <label className='form-label'>Name</label>
         </div>
         <br></br>
         <div className='form-floating'>
-          <input type='email' className='form-control' name='email' placeholder='email' onChange={handleChange}></input>
+          <input type='email' className='form-control' name='email' placeholder='email' onChange={handleChange} ></input>
           <label className='form-label'>Email</label>
         </div>
         <br></br>
         <div className='form-floating'>
-          <input type='password' className='form-control' name='password' placeholder='password' onChange={handleChange}></input>
+          <input type='password' className='form-control' name='password' placeholder='password' onChange={handleChange} ></input>
           <label className='form-label'>Password</label>
         </div>
         <br></br>
         <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
-          <input type='file' className='form-control col' name='image' placeholder='image' onChange={handleChange}></input>
+          <input type='file' className='form-control col' name='image' placeholder={newUser.image} onChange={handleChange} ></input>
         </div>
         <br />
         <button type='submit' className='btn btn-primary'>Create Account</button>

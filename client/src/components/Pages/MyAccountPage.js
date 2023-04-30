@@ -11,8 +11,7 @@ function MyAccountPage() {
     email: user.email,
     image: user.image_url
   })
-
-  
+  console.log(updateUser)
   function handleChange(e) {
     if (e.target.name === 'image') {
       setUpdateUser({
@@ -94,7 +93,7 @@ function MyAccountPage() {
         <br></br>
         <div className='row justify-content-evenly'>
           <label className='form-label col'>Picture:</label>
-          <img src={user.image_url}></img>
+          <img className='account-page-img-thumbnail' src={user.image_url}></img>
           <input type='file' className='form-control col' name='image' onChange={handleChange}></input>
         </div>
         <br></br>
