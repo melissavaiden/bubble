@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     byebug
     @user.update!(user_params)
-      # image = @user.to_json(include: [:image])
     render json: @user, status: :ok
   rescue ActiveRecord::RecordInvalid => invalid
     render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity

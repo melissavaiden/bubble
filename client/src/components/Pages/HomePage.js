@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../Contexts/UserContext'
 import NavBar from '../Banners-NavBar/NavBar'
-import MyGames from '../Scoreboards/MyGames'
 import MyScoreboard from '../Scoreboards/MyScoreboard'
 
 function HomePage() {
-  const {user, setUser} = useContext(UserContext)
+  const {user, setUser, currentUserGames} = useContext(UserContext)
 
   return (
     <div>
@@ -17,7 +16,6 @@ function HomePage() {
             <img className='img-thumbnail' src={user.image_url}></img>
             </h2>
               <MyScoreboard />
-              <MyGames />
         </div>
     </div>
   )

@@ -3,7 +3,12 @@ import { UserContext } from '../Contexts/UserContext'
 
 function MyScoreboard() {
   const { user } = useContext(UserContext)
-  console.log(user)
+
+  let gameScores = user.scores.map((game) => {
+    return (
+      <li className='list-group-item' key={game.id}>{game.category}:{game.difficulty}--{game.score}</li>
+    )
+  })
 
   return (
     <div className='container my-scoreboard-container'>
@@ -12,9 +17,7 @@ function MyScoreboard() {
                 My Scores
             </div>
             <ul className='list-group list-group-flush'>
-                <li className='list-group-item'>Score</li>
-                <li className='list-group-item'>Score</li>
-                <li className='list-group-item'>Score</li>
+                {gameScores}
             </ul>
         </div>
     </div>

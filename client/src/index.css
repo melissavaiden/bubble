@@ -58,8 +58,6 @@ html {
 
 .my-scoreboard-container {
     block-size: fit-content;
-    width: 50%;
-    float: right;
 }
 
 .my-scoreboard-title {
