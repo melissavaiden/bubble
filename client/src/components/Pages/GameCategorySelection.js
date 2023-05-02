@@ -15,8 +15,8 @@ function GameCategorySelection() {
 
   return (
     <div>
-      <NavBar />
       <div className='container cat-container'>
+      <NavBar />
         <div className='row'>
           <div className='card col cat-card' onClick={handleClick}>
             Sports

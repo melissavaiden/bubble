@@ -30,12 +30,20 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     @user = User.find_by(id: params[:id])
-    byebug
     @user.update!(user_params)
     render json: @user, status: :ok
   rescue ActiveRecord::RecordInvalid => invalid
     render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end
+
+  def update_password
+    @user = User.find_by(id: params[:id])
+    @user.update!(password: params[:password])
+    render json: @user, status: :ok
+  rescue ActiveRecord::RecordInvalid => invalid
+    render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity
+  end
+
 
   # DELETE /users/1
   def destroy
@@ -50,6 +58,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :name, :email, :password, :image).select { |x,v|v.present? }
+      params.require(:user).permit(:username, :name, :email, :password_digest, :image).select { |x,v|v.present? }
     end
 end

@@ -45,37 +45,45 @@ function MyAccountPage() {
         headers: {},
         body: data
       })
-      .then((r) => r.json())
-      .then((user) => console.log(user))
+      .then((r) => {
+        if (r.ok) {
+          alert('This account has been successfully updated!')
+        }
+      })
 
     }
 
   function handleSubmitNewPassword() {
     const newPassword = document.getElementById('new-password').value
     const currentPassword = document.getElementById('current-password').value
-    fetch(`/users/${user.id}`, {
+    fetch(`/pw_change/${user.id}`, {
       method: "PATCH",
       headers: {        
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        id: user.id,
         password: newPassword,
         currentPassword: currentPassword
       })
     })
-    .then((r) => r.json())
-    .then((password) => console.log(password))
+    .then((r) => {
+      if (r.ok) {
+        alert('This account has been successfully updated!')
+      }
+    })
   }
 
 
   return (
     <>
       <div>
-        <NavBar /> 
       </div>
       <div className='update-confirmation'></div>
       <br></br>
       <form className='container' onSubmit={handleSubmit}>
+      <NavBar /> 
+
         <div className="row justify-content-evenly">
           <label className='form-label col'>Username:</label>
           <input type='username' className='form-control col username-input' name='username' value={updateUser.username} placeholder={user.username} onChange={handleChange}></input>

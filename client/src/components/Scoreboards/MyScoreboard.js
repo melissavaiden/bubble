@@ -6,7 +6,7 @@ function MyScoreboard() {
 
   let gameScores = user.scores.map((game) => {
     return (
-      <li className='list-group-item' key={game.id}>{game.category}:{game.difficulty}--{game.score}</li>
+      <li className='list-group-item' key={game.id}>{game.category}-{game.difficulty}--{game.score}</li>
     )
   })
 
